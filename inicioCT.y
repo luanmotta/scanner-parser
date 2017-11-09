@@ -1,3 +1,4 @@
+/* Imports */
 %{
 	import java.io.*;
 	import java.util.*;
@@ -11,12 +12,14 @@
 %token FUNCAO_PRINCIPAL
 %token INCLUIR
 %token INTEIRO
+%token REAL
 %type <sval> programa
 %type <sval> funcao_principal
 %type <sval> inclusao
 %type <sval> comandos
 %type <sval> declaracao
 
+/* Inicio das regras da gramática */
 %%
 inicio : programa	 { System.out.println($1); }
 
@@ -31,9 +34,12 @@ inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 comandos : declaracao		{ $$ = $1; }
 		 |					{ $$ = ""; }
 
-declaracao : INTEIRO IDENTIFICADOR	{  $$ = "int " + $2 + ";\n"; }
+declaracao : INTEIRO IDENTIFICADOR declaracao	{  $$ = "int " + $2 + ";\n" + $3; }
+		 | REAL IDENTIFICADOR	declaracao {  $$ = "double " + $2 + ";\n" + $3; }
+			| { $$ = ""; }
 
 %%
+/* Início do Código em Java */
 
 	// Referencia ao JFlex
 	private Yylex lexer;

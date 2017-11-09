@@ -50,11 +50,11 @@ class Yylex {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\3\2\1\0\1\3\1\4\2\2\1\5"+
-    "\14\2\1\0\1\6\1\7\10\0\1\10";
+    "\1\0\2\1\4\2\1\0\1\3\1\4\3\2\1\5"+
+    "\5\2\1\6\10\2\1\0\1\7\1\10\10\0\1\11";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -79,14 +79,14 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\30\0\60\0\110\0\140\0\170\0\220\0\30"+
-    "\0\30\0\250\0\300\0\220\0\330\0\360\0\u0108\0\u0120"+
-    "\0\u0138\0\u0150\0\u0168\0\u0180\0\u0198\0\u01b0\0\u01c8\0\u01e0"+
-    "\0\u01f8\0\140\0\140\0\u0210\0\u0228\0\u0240\0\u0258\0\u0270"+
-    "\0\u0288\0\u02a0\0\u02b8\0\30";
+    "\0\0\0\30\0\60\0\110\0\140\0\170\0\220\0\250"+
+    "\0\30\0\30\0\300\0\330\0\360\0\250\0\u0108\0\u0120"+
+    "\0\u0138\0\u0150\0\u0168\0\140\0\u0180\0\u0198\0\u01b0\0\u01c8"+
+    "\0\u01e0\0\u01f8\0\u0210\0\u0228\0\u0240\0\140\0\140\0\u0258"+
+    "\0\u0270\0\u0288\0\u02a0\0\u02b8\0\u02d0\0\u02e8\0\u0300\0\30";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -109,31 +109,34 @@ class Yylex {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\0\1\2\1\3\1\4\5\5\1\0\2\5\1\6"+
-    "\3\5\1\7\2\0\1\10\1\11\1\5\1\0\1\2"+
-    "\31\0\1\2\31\0\1\5\1\12\4\5\1\0\6\5"+
-    "\5\0\2\5\4\0\6\5\1\0\6\5\5\0\2\5"+
-    "\4\0\2\5\1\13\3\5\1\0\6\5\5\0\2\5"+
-    "\1\0\1\7\2\0\16\7\1\0\1\14\5\7\3\0"+
-    "\2\5\1\15\3\5\1\0\6\5\5\0\2\5\4\0"+
-    "\3\5\1\16\2\5\1\0\4\5\1\17\1\5\5\0"+
-    "\2\5\4\0\3\5\1\20\2\5\1\0\6\5\5\0"+
-    "\2\5\4\0\6\5\1\0\3\5\1\21\2\5\5\0"+
-    "\2\5\4\0\6\5\1\0\5\5\1\22\5\0\2\5"+
-    "\4\0\4\5\1\23\1\5\1\0\6\5\5\0\2\5"+
-    "\4\0\1\5\1\24\4\5\1\0\6\5\5\0\2\5"+
-    "\4\0\6\5\1\0\2\5\1\25\3\5\5\0\2\5"+
-    "\4\0\5\5\1\26\1\0\6\5\5\0\2\5\4\0"+
-    "\6\5\1\0\2\5\1\27\3\5\5\0\2\5\4\0"+
-    "\6\5\1\0\1\5\1\30\4\5\5\0\2\5\4\0"+
-    "\6\5\1\31\6\5\5\0\2\5\4\0\6\5\1\0"+
-    "\1\5\1\32\4\5\5\0\2\5\4\0\5\5\1\33"+
-    "\1\0\6\5\5\0\2\5\13\0\1\34\30\0\1\35"+
-    "\30\0\1\36\20\0\1\37\30\0\1\40\35\0\1\41"+
-    "\25\0\1\42\24\0\1\43\35\0\1\44\12\0";
+    "\1\0\1\2\1\3\1\4\5\5\1\0\1\5\1\6"+
+    "\1\7\3\5\1\10\2\0\1\11\1\12\1\5\1\0"+
+    "\1\2\31\0\1\2\31\0\1\5\1\13\4\5\1\0"+
+    "\6\5\5\0\2\5\4\0\6\5\1\0\6\5\5\0"+
+    "\2\5\4\0\6\5\1\0\5\5\1\14\5\0\2\5"+
+    "\4\0\2\5\1\15\3\5\1\0\6\5\5\0\2\5"+
+    "\1\0\1\10\2\0\16\10\1\0\1\16\5\10\3\0"+
+    "\2\5\1\17\3\5\1\0\6\5\5\0\2\5\4\0"+
+    "\4\5\1\20\1\5\1\0\6\5\5\0\2\5\4\0"+
+    "\3\5\1\21\2\5\1\0\4\5\1\22\1\5\5\0"+
+    "\2\5\4\0\3\5\1\23\2\5\1\0\6\5\5\0"+
+    "\2\5\4\0\6\5\1\0\3\5\1\24\2\5\5\0"+
+    "\2\5\4\0\6\5\1\0\3\5\1\25\2\5\5\0"+
+    "\2\5\4\0\6\5\1\0\5\5\1\26\5\0\2\5"+
+    "\4\0\4\5\1\27\1\5\1\0\6\5\5\0\2\5"+
+    "\4\0\1\5\1\30\4\5\1\0\6\5\5\0\2\5"+
+    "\4\0\6\5\1\0\2\5\1\31\3\5\5\0\2\5"+
+    "\4\0\5\5\1\32\1\0\6\5\5\0\2\5\4\0"+
+    "\6\5\1\0\2\5\1\33\3\5\5\0\2\5\4\0"+
+    "\6\5\1\0\1\5\1\34\4\5\5\0\2\5\4\0"+
+    "\6\5\1\35\6\5\5\0\2\5\4\0\6\5\1\0"+
+    "\1\5\1\36\4\5\5\0\2\5\4\0\5\5\1\37"+
+    "\1\0\6\5\5\0\2\5\13\0\1\40\30\0\1\41"+
+    "\30\0\1\42\20\0\1\43\30\0\1\44\35\0\1\45"+
+    "\25\0\1\46\24\0\1\47\35\0\1\50\12\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[720];
+    int [] result = new int[792];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -171,11 +174,11 @@ class Yylex {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\4\1\1\0\2\11\17\1\1\0\2\1"+
+    "\1\0\1\11\5\1\1\0\2\11\22\1\1\0\2\1"+
     "\10\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[36];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -259,7 +262,7 @@ class Yylex {
 	public Yylex(Reader r, Parser yyparser){
 		this(r);
 		this.yyparser = yyparser;
-	}	
+	}
 
 
 
@@ -593,37 +596,41 @@ class Yylex {
           case 1: 
             { 
             }
-          case 9: break;
+          case 10: break;
           case 2: 
             { yyparser.yylval = new ParserVal(yytext());
 		return Parser.IDENTIFICADOR;
             }
-          case 10: break;
+          case 11: break;
           case 3: 
             { return Parser.ABRE_CHAVES;
             }
-          case 11: break;
+          case 12: break;
           case 4: 
             { return Parser.FECHA_CHAVES;
             }
-          case 12: break;
+          case 13: break;
           case 5: 
             { yyparser.yylval = new ParserVal(yytext());
 		  return Parser.INCLUSAO_ARQUIVO;
             }
-          case 13: break;
-          case 6: 
-            { return Parser.INCLUIR;
-            }
           case 14: break;
-          case 7: 
-            { return Parser.INTEIRO;
+          case 6: 
+            { return Parser.REAL;
             }
           case 15: break;
-          case 8: 
-            { return Parser.FUNCAO_PRINCIPAL;
+          case 7: 
+            { return Parser.INCLUIR;
             }
           case 16: break;
+          case 8: 
+            { return Parser.INTEIRO;
+            }
+          case 17: break;
+          case 9: 
+            { return Parser.FUNCAO_PRINCIPAL;
+            }
+          case 18: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
