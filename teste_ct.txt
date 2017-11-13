@@ -1,6 +1,12 @@
 incluir <stdio.h>
 incluir <stdlib.h>
 
+funcao inteiro geraValores () {
+  inteiro retorno
+  retorno := (rand()%10+1)
+  retornar retorno
+}
+
 funcao_principal {
 	real retorno
 	inteiro teste

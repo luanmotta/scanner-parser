@@ -17,7 +17,7 @@
 %token ABRE_PARENTESES
 %token FECHA_PARENTESES
 
-
+%token FUNCAO
 %token FUNCAO_PRINCIPAL
 
 %token INTEIRO
@@ -25,6 +25,7 @@
 %token CARACTERE
 
 %type <sval> programa
+%type <sval> funcao
 %type <sval> funcao_principal
 %type <sval> inclusao
 %type <sval> comandos
@@ -35,8 +36,11 @@
 inicio   : programa	 { System.out.println($1); }
 
 programa : inclusao         programa { $$ = $1 + "\n" + $2; }
+				 | funcao           programa { $$ = $1 + "\n" + $2; }
 		     | funcao_principal programa { $$ = $1 + "\n" + $2; }
 	       |					                 { $$ = ""; }
+
+// funcao : FUNCAO ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
 
 funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
 
@@ -45,9 +49,14 @@ inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 comandos : declaracao	{ $$ = $1; }
 		     |					  { $$ = ""; }
 
-declaracao : INTEIRO IDENTIFICADOR declaracao	{ $$ = "int "    + $2 + ";\n" + $3; }
-		       | REAL    IDENTIFICADOR declaracao { $$ = "double " + $2 + ";\n" + $3; }
-		       |                                  { $$ = "";                          }
+declaracao : tipo IDENTIFICADOR declaracao	  { $$ = "$1"    + $2 + ";\n" + $3; }
+		       | tipo IDENTIFICADOR declaracao    { $$ = "$2"    + $2 + ";\n" + $3; }
+		       |                                  { $$ = "";                        }
+
+tipo: INTEIRO   { $$ = "int" }
+    | REAL      { $$ = "double" }
+		| CARACTERE { $$ = "" }
+
 
 %%
 /* Início do Código em Java */
