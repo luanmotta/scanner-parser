@@ -7,12 +7,23 @@
 /* BYACC Declarations */
 %token <sval> IDENTIFICADOR
 %token <sval> INCLUSAO_ARQUIVO
+
+%token INCLUIR
+
 %token ABRE_CHAVES
 %token FECHA_CHAVES
+%token ABRE_COLCHETES
+%token FECHA_COLCHETES
+%token ABRE_PARENTESES
+%token FECHA_PARENTESES
+
+
 %token FUNCAO_PRINCIPAL
-%token INCLUIR
+
 %token INTEIRO
 %token REAL
+%token CARACTERE
+
 %type <sval> programa
 %type <sval> funcao_principal
 %type <sval> inclusao
@@ -21,22 +32,22 @@
 
 /* Inicio das regras da gramática */
 %%
-inicio : programa	 { System.out.println($1); }
+inicio   : programa	 { System.out.println($1); }
 
-programa : inclusao programa	{ $$ = $1 + "\n" + $2; }
-		 | funcao_principal programa { $$ = $1 + "\n" + $2; }
-	     |					{ $$ = ""; }
+programa : inclusao         programa { $$ = $1 + "\n" + $2; }
+		     | funcao_principal programa { $$ = $1 + "\n" + $2; }
+	       |					                 { $$ = ""; }
 
 funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
 
 inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 
-comandos : declaracao		{ $$ = $1; }
-		 |					{ $$ = ""; }
+comandos : declaracao	{ $$ = $1; }
+		     |					  { $$ = ""; }
 
-declaracao : INTEIRO IDENTIFICADOR declaracao	{  $$ = "int " + $2 + ";\n" + $3; }
-		 | REAL IDENTIFICADOR	declaracao {  $$ = "double " + $2 + ";\n" + $3; }
-			| { $$ = ""; }
+declaracao : INTEIRO IDENTIFICADOR declaracao	{ $$ = "int "    + $2 + ";\n" + $3; }
+		       | REAL    IDENTIFICADOR declaracao { $$ = "double " + $2 + ";\n" + $3; }
+		       |                                  { $$ = "";                          }
 
 %%
 /* Início do Código em Java */
