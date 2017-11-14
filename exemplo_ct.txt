@@ -13,8 +13,8 @@ funcao real media (inteiro a) {
 
   soma := 0
   quantidade := 0
-  
-  para (i := 1; i <= a; i++) {  
+
+  para (i := 1; i <= a; i++) {
     se (a%i == 0) {
       quantidade++
       soma := soma + i
@@ -30,7 +30,7 @@ funcao inteiro soma (inteiro a) {
   inteiro somatorio
 
   somatorio := 0
-  
+
   para (i:=1;i<=a;i++) {
     se (a%i==0)
       somatorio:=somatorio+i
@@ -79,13 +79,13 @@ funcao_principal {
   enquanto (i < tamanho) {
     funcoes[i]=geraFuncao()
     valores[i]=geraValores()
-    i++  
+    i++
   }
 
   i := 0
   faca {
     caso (funcoes[i]) {
-      opcao 'm': 
+      opcao 'm':
         resultado[i]=media(valores[i])
         fim_opcao
       opcao 's':

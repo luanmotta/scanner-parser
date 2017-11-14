@@ -33,11 +33,12 @@ class Yylex {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\27\1\1\1\21\1\21\1\2\22\0\1\27\17\0\12\26"+
-    "\2\0\1\20\1\0\1\22\2\0\32\25\4\0\1\11\1\0\1\7"+
-    "\1\25\1\6\1\25\1\17\1\3\2\25\1\14\2\25\1\15\1\25"+
-    "\1\5\1\10\1\12\1\25\1\13\1\25\1\16\1\4\5\25\1\23"+
-    "\1\0\1\24\7\0\1\21\u1fa2\0\1\21\1\21\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\1\33\1\1\1\27\1\27\1\2\22\0\1\33\7\0\1\22"+
+    "\1\23\6\0\12\32\2\0\1\26\1\0\1\30\2\0\32\31\1\20"+
+    "\1\0\1\21\1\0\1\14\1\0\1\12\1\31\1\5\1\31\1\25"+
+    "\1\11\2\31\1\3\2\31\1\6\1\31\1\4\1\13\1\15\1\31"+
+    "\1\10\1\31\1\24\1\7\5\31\1\16\1\0\1\17\7\0\1\27"+
+    "\u1fa2\0\1\27\1\27\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -50,11 +51,12 @@ class Yylex {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\2\1\4\2\1\0\1\3\1\4\3\2\1\5"+
-    "\5\2\1\6\10\2\1\0\1\7\1\10\10\0\1\11";
+    "\1\0\2\1\5\2\1\3\1\4\1\5\1\6\1\7"+
+    "\1\10\1\0\4\2\1\11\10\2\1\12\10\2\1\13"+
+    "\1\14\1\15\1\2\1\0\1\16\10\0\1\17";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[40];
+    int [] result = new int[52];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -79,14 +81,16 @@ class Yylex {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\30\0\60\0\110\0\140\0\170\0\220\0\250"+
-    "\0\30\0\30\0\300\0\330\0\360\0\250\0\u0108\0\u0120"+
-    "\0\u0138\0\u0150\0\u0168\0\140\0\u0180\0\u0198\0\u01b0\0\u01c8"+
-    "\0\u01e0\0\u01f8\0\u0210\0\u0228\0\u0240\0\140\0\140\0\u0258"+
-    "\0\u0270\0\u0288\0\u02a0\0\u02b8\0\u02d0\0\u02e8\0\u0300\0\30";
+    "\0\0\0\34\0\70\0\124\0\160\0\214\0\250\0\304"+
+    "\0\34\0\34\0\34\0\34\0\34\0\34\0\340\0\374"+
+    "\0\u0118\0\u0134\0\u0150\0\340\0\u016c\0\u0188\0\u01a4\0\u01c0"+
+    "\0\u01dc\0\u01f8\0\u0214\0\u0230\0\160\0\u024c\0\u0268\0\u0284"+
+    "\0\u02a0\0\u02bc\0\u02d8\0\u02f4\0\u0310\0\u032c\0\160\0\160"+
+    "\0\u0348\0\u0364\0\160\0\u0380\0\u039c\0\u03b8\0\u03d4\0\u03f0"+
+    "\0\u040c\0\u0428\0\u0444\0\34";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[40];
+    int [] result = new int[52];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -109,34 +113,48 @@ class Yylex {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\0\1\2\1\3\1\4\5\5\1\0\1\5\1\6"+
-    "\1\7\3\5\1\10\2\0\1\11\1\12\1\5\1\0"+
-    "\1\2\31\0\1\2\31\0\1\5\1\13\4\5\1\0"+
-    "\6\5\5\0\2\5\4\0\6\5\1\0\6\5\5\0"+
-    "\2\5\4\0\6\5\1\0\5\5\1\14\5\0\2\5"+
-    "\4\0\2\5\1\15\3\5\1\0\6\5\5\0\2\5"+
-    "\1\0\1\10\2\0\16\10\1\0\1\16\5\10\3\0"+
-    "\2\5\1\17\3\5\1\0\6\5\5\0\2\5\4\0"+
-    "\4\5\1\20\1\5\1\0\6\5\5\0\2\5\4\0"+
-    "\3\5\1\21\2\5\1\0\4\5\1\22\1\5\5\0"+
-    "\2\5\4\0\3\5\1\23\2\5\1\0\6\5\5\0"+
-    "\2\5\4\0\6\5\1\0\3\5\1\24\2\5\5\0"+
-    "\2\5\4\0\6\5\1\0\3\5\1\25\2\5\5\0"+
-    "\2\5\4\0\6\5\1\0\5\5\1\26\5\0\2\5"+
-    "\4\0\4\5\1\27\1\5\1\0\6\5\5\0\2\5"+
-    "\4\0\1\5\1\30\4\5\1\0\6\5\5\0\2\5"+
-    "\4\0\6\5\1\0\2\5\1\31\3\5\5\0\2\5"+
-    "\4\0\5\5\1\32\1\0\6\5\5\0\2\5\4\0"+
-    "\6\5\1\0\2\5\1\33\3\5\5\0\2\5\4\0"+
-    "\6\5\1\0\1\5\1\34\4\5\5\0\2\5\4\0"+
-    "\6\5\1\35\6\5\5\0\2\5\4\0\6\5\1\0"+
-    "\1\5\1\36\4\5\5\0\2\5\4\0\5\5\1\37"+
-    "\1\0\6\5\5\0\2\5\13\0\1\40\30\0\1\41"+
-    "\30\0\1\42\20\0\1\43\30\0\1\44\35\0\1\45"+
-    "\25\0\1\46\24\0\1\47\35\0\1\50\12\0";
+    "\1\0\1\2\1\3\1\4\1\5\1\6\2\5\1\7"+
+    "\1\10\2\5\1\0\1\5\1\11\1\12\1\13\1\14"+
+    "\1\15\1\16\2\5\1\17\2\0\1\5\1\0\1\2"+
+    "\35\0\1\2\35\0\1\5\1\20\7\5\1\0\1\5"+
+    "\6\0\2\5\3\0\2\5\4\0\11\5\1\0\1\5"+
+    "\6\0\2\5\3\0\2\5\4\0\7\5\1\21\1\5"+
+    "\1\0\1\5\6\0\2\5\3\0\2\5\4\0\11\5"+
+    "\1\0\1\5\6\0\1\5\1\22\3\0\2\5\4\0"+
+    "\4\5\1\23\4\5\1\0\1\5\6\0\2\5\3\0"+
+    "\2\5\1\0\1\17\2\0\24\17\1\0\1\24\3\17"+
+    "\3\0\2\5\1\25\6\5\1\0\1\5\6\0\1\26"+
+    "\1\5\3\0\2\5\4\0\5\5\1\27\3\5\1\0"+
+    "\1\5\6\0\2\5\3\0\2\5\4\0\7\5\1\30"+
+    "\1\5\1\0\1\5\6\0\2\5\3\0\2\5\4\0"+
+    "\1\5\1\31\7\5\1\0\1\5\6\0\2\5\3\0"+
+    "\2\5\4\0\3\5\1\32\5\5\1\0\1\5\6\0"+
+    "\2\5\3\0\2\5\4\0\11\5\1\0\1\5\6\0"+
+    "\1\5\1\33\3\0\2\5\4\0\7\5\1\34\1\5"+
+    "\1\0\1\5\6\0\2\5\3\0\2\5\4\0\3\5"+
+    "\1\35\5\5\1\0\1\5\6\0\2\5\3\0\2\5"+
+    "\4\0\2\5\1\36\6\5\1\0\1\5\6\0\2\5"+
+    "\3\0\2\5\4\0\4\5\1\37\4\5\1\0\1\5"+
+    "\6\0\2\5\3\0\2\5\4\0\1\40\10\5\1\0"+
+    "\1\5\6\0\2\5\3\0\2\5\4\0\2\5\1\41"+
+    "\6\5\1\0\1\5\6\0\2\5\3\0\2\5\4\0"+
+    "\7\5\1\42\1\5\1\0\1\5\6\0\2\5\3\0"+
+    "\2\5\4\0\1\43\10\5\1\0\1\5\6\0\2\5"+
+    "\3\0\2\5\4\0\5\5\1\44\3\5\1\0\1\5"+
+    "\6\0\2\5\3\0\2\5\4\0\11\5\1\0\1\5"+
+    "\6\0\1\45\1\5\3\0\2\5\4\0\10\5\1\46"+
+    "\1\0\1\5\6\0\2\5\3\0\2\5\4\0\5\5"+
+    "\1\47\3\5\1\0\1\5\6\0\2\5\3\0\2\5"+
+    "\4\0\10\5\1\50\1\0\1\5\6\0\2\5\3\0"+
+    "\2\5\4\0\11\5\1\0\1\5\6\0\1\5\1\51"+
+    "\3\0\2\5\4\0\11\5\1\52\1\5\6\0\2\5"+
+    "\3\0\2\5\4\0\5\5\1\53\3\5\1\0\1\5"+
+    "\6\0\2\5\3\0\2\5\16\0\1\54\26\0\1\55"+
+    "\26\0\1\56\34\0\1\57\34\0\1\60\31\0\1\61"+
+    "\45\0\1\62\30\0\1\63\27\0\1\64\25\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[792];
+    int [] result = new int[1120];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -174,11 +192,11 @@ class Yylex {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\5\1\1\0\2\11\22\1\1\0\2\1"+
+    "\1\0\1\11\6\1\6\11\1\0\32\1\1\0\1\1"+
     "\10\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[40];
+    int [] result = new int[52];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -286,7 +304,7 @@ class Yylex {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 128) {
+    while (i < 140) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -596,41 +614,65 @@ class Yylex {
           case 1: 
             { 
             }
-          case 10: break;
+          case 16: break;
           case 2: 
             { yyparser.yylval = new ParserVal(yytext());
-		return Parser.IDENTIFICADOR;
+	return Parser.IDENTIFICADOR;
             }
-          case 11: break;
+          case 17: break;
           case 3: 
             { return Parser.ABRE_CHAVES;
             }
-          case 12: break;
+          case 18: break;
           case 4: 
             { return Parser.FECHA_CHAVES;
             }
-          case 13: break;
+          case 19: break;
           case 5: 
-            { yyparser.yylval = new ParserVal(yytext());
-		  return Parser.INCLUSAO_ARQUIVO;
+            { return Parser.ABRE_COLCHETES;
             }
-          case 14: break;
+          case 20: break;
           case 6: 
+            { return Parser.FECHA_COLCHETES;
+            }
+          case 21: break;
+          case 7: 
+            { return Parser.ABRE_PARENTESES;
+            }
+          case 22: break;
+          case 8: 
+            { return Parser.FECHA_PARENTESES;
+            }
+          case 23: break;
+          case 9: 
+            { yyparser.yylval = new ParserVal(yytext());
+	return Parser.INCLUSAO_ARQUIVO;
+            }
+          case 24: break;
+          case 10: 
             { return Parser.REAL;
             }
-          case 15: break;
-          case 7: 
+          case 25: break;
+          case 11: 
+            { return Parser.SUBROTINA;
+            }
+          case 26: break;
+          case 12: 
             { return Parser.INCLUIR;
             }
-          case 16: break;
-          case 8: 
+          case 27: break;
+          case 13: 
             { return Parser.INTEIRO;
             }
-          case 17: break;
-          case 9: 
+          case 28: break;
+          case 14: 
+            { return Parser.CARACTERE;
+            }
+          case 29: break;
+          case 15: 
             { return Parser.FUNCAO_PRINCIPAL;
             }
-          case 18: break;
+          case 30: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

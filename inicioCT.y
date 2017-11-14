@@ -5,10 +5,11 @@
 %}
 
 /* BYACC Declarations */
-%token <sval> IDENTIFICADOR
-%token <sval> INCLUSAO_ARQUIVO
 
 %token INCLUIR
+
+%token FUNCAO_PRINCIPAL
+%token SUBROTINA
 
 %token ABRE_CHAVES
 %token FECHA_CHAVES
@@ -17,19 +18,24 @@
 %token ABRE_PARENTESES
 %token FECHA_PARENTESES
 
-%token FUNCAO
-%token FUNCAO_PRINCIPAL
 
 %token INTEIRO
 %token REAL
 %token CARACTERE
 
+
+%token <sval> INCLUSAO_ARQUIVO
+%token <sval> IDENTIFICADOR
+
+
 %type <sval> programa
-%type <sval> funcao
-%type <sval> funcao_principal
 %type <sval> inclusao
+%type <sval> funcao_principal
+%type <sval> funcao
+%type <sval> parametros
 %type <sval> comandos
 %type <sval> declaracao
+%type <sval> tipo
 
 /* Inicio das regras da gramática */
 %%
@@ -38,25 +44,26 @@ inicio   : programa	 { System.out.println($1); }
 programa : inclusao         programa { $$ = $1 + "\n" + $2; }
 				 | funcao           programa { $$ = $1 + "\n" + $2; }
 		     | funcao_principal programa { $$ = $1 + "\n" + $2; }
-	       |					                 { $$ = ""; }
-
-// funcao : FUNCAO ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
+	       |					                 { $$ = "";             }
 
 funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
+
+funcao : SUBROTINA declaracao ABRE_PARENTESES parametros FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = $2 + "(" + $4 + ")" + "{\n " + $7 + "}\n"; }
+
+parametros : declaracao { $$ = $1; }
+           |            { $$ = ""; }
 
 inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 
 comandos : declaracao	{ $$ = $1; }
 		     |					  { $$ = ""; }
 
-declaracao : tipo IDENTIFICADOR declaracao	  { $$ = "$1"    + $2 + ";\n" + $3; }
-		       | tipo IDENTIFICADOR declaracao    { $$ = "$2"    + $2 + ";\n" + $3; }
+declaracao : tipo IDENTIFICADOR declaracao	  { $$ = $1 + $2 + ";\n" + $3; }
 		       |                                  { $$ = "";                        }
 
-tipo: INTEIRO   { $$ = "int" }
-    | REAL      { $$ = "double" }
-		| CARACTERE { $$ = "" }
-
+tipo : INTEIRO   { $$ = "int ";    }
+     | REAL      { $$ = "double "; }
+		 | CARACTERE { $$ = "char ";   }
 
 %%
 /* Início do Código em Java */
