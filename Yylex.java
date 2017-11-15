@@ -616,60 +616,60 @@ class Yylex {
           case 16: break;
           case 2: 
             { yyparser.yylval = new ParserVal(yytext());
-	return Parser.IDENTIFICADOR;
+	return Parser.identificador;
             }
           case 17: break;
           case 3: 
-            { return Parser.ABRE_CHAVES;
+            { return Parser.abre_chaves;
             }
           case 18: break;
           case 4: 
-            { return Parser.FECHA_CHAVES;
+            { return Parser.fecha_chaves;
             }
           case 19: break;
           case 5: 
-            { return Parser.ABRE_COLCHETES;
+            { return Parser.abre_colchetes;
             }
           case 20: break;
           case 6: 
-            { return Parser.FECHA_COLCHETES;
+            { return Parser.fecha_colchetes;
             }
           case 21: break;
           case 7: 
-            { return Parser.ABRE_PARENTESES;
+            { return Parser.abre_parenteses;
             }
           case 22: break;
           case 8: 
-            { return Parser.FECHA_PARENTESES;
+            { return Parser.fecha_parenteses;
             }
           case 23: break;
           case 9: 
             { yyparser.yylval = new ParserVal(yytext());
-	return Parser.INCLUSAO_ARQUIVO;
+	return Parser.inclusao_arquivo;
             }
           case 24: break;
           case 10: 
-            { return Parser.REAL;
+            { return Parser.real;
             }
           case 25: break;
           case 11: 
-            { return Parser.SUBROTINA;
+            { return Parser.subrotina;
             }
           case 26: break;
           case 12: 
-            { return Parser.INCLUIR;
+            { return Parser.incluir;
             }
           case 27: break;
           case 13: 
-            { return Parser.INTEIRO;
+            { return Parser.inteiro;
             }
           case 28: break;
           case 14: 
-            { return Parser.CARACTERE;
+            { return Parser.caractere;
             }
           case 29: break;
           case 15: 
-            { return Parser.FUNCAO_PRINCIPAL;
+            { return Parser.main;
             }
           case 30: break;
           default:

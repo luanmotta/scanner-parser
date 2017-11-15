@@ -21,31 +21,32 @@ NL = \n | \r | \r\n
 
 %%
 
-incluir	         { return Parser.INCLUIR;          }
-definir          { return Parser.DEFINIR;          }
+incluir	         { return Parser.incluir;          }
 
-funcao_principal { return Parser.FUNCAO_PRINCIPAL; }
-funcao           { return Parser.SUBROTINA;        }
+funcao_principal { return Parser.main;             }
+funcao           { return Parser.subrotina;        }
 
-"{"	             { return Parser.ABRE_CHAVES;      }
-"}"              { return Parser.FECHA_CHAVES;     }
-"["	             { return Parser.ABRE_COLCHETES;   }
-"]"              { return Parser.FECHA_COLCHETES;  }
-"("	             { return Parser.ABRE_PARENTESES;  }
-")"              { return Parser.FECHA_PARENTESES; }
+"{"	             { return Parser.abre_chaves;      }
+"}"              { return Parser.fecha_chaves;     }
+"["	             { return Parser.abre_colchetes;   }
+"]"              { return Parser.fecha_colchetes;  }
+"("	             { return Parser.abre_parenteses;  }
+")"              { return Parser.fecha_parenteses; }
 
-inteiro          { return Parser.INTEIRO;          }
-real             { return Parser.REAL;             }
-caracter         { return Parser.CARACTERE;        }
+inteiro          { return Parser.inteiro;          }
+real             { return Parser.real;             }
+caracter         { return Parser.caractere;        }
+
 
 \<.*\>	{
 	yyparser.yylval = new ParserVal(yytext());
-	return Parser.INCLUSAO_ARQUIVO;
+	return Parser.inclusao_arquivo;
 }
 
 [a-zA-Z_][_a-zA-Z0-9]*	{
 	yyparser.yylval = new ParserVal(yytext());
-	return Parser.IDENTIFICADOR;
+	return Parser.identificador;
 }
+
 
 {NL}|" "|\t	{  }

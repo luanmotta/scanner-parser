@@ -157,20 +157,20 @@ final ParserVal dup_yyval(ParserVal val)
   return dup;
 }
 //#### end semantic value section ####
-public final static short INCLUIR=257;
-public final static short FUNCAO_PRINCIPAL=258;
-public final static short SUBROTINA=259;
-public final static short ABRE_CHAVES=260;
-public final static short FECHA_CHAVES=261;
-public final static short ABRE_COLCHETES=262;
-public final static short FECHA_COLCHETES=263;
-public final static short ABRE_PARENTESES=264;
-public final static short FECHA_PARENTESES=265;
-public final static short INTEIRO=266;
-public final static short REAL=267;
-public final static short CARACTERE=268;
-public final static short INCLUSAO_ARQUIVO=269;
-public final static short IDENTIFICADOR=270;
+public final static short incluir=257;
+public final static short main=258;
+public final static short subrotina=259;
+public final static short abre_chaves=260;
+public final static short fecha_chaves=261;
+public final static short abre_colchetes=262;
+public final static short fecha_colchetes=263;
+public final static short abre_parenteses=264;
+public final static short fecha_parenteses=265;
+public final static short inteiro=266;
+public final static short real=267;
+public final static short caractere=268;
+public final static short inclusao_arquivo=269;
+public final static short identificador=270;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     0,    1,    1,    1,    1,    3,    4,    5,    5,    2,
@@ -239,33 +239,32 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
-null,null,null,"INCLUIR","FUNCAO_PRINCIPAL","SUBROTINA","ABRE_CHAVES",
-"FECHA_CHAVES","ABRE_COLCHETES","FECHA_COLCHETES","ABRE_PARENTESES",
-"FECHA_PARENTESES","INTEIRO","REAL","CARACTERE","INCLUSAO_ARQUIVO",
-"IDENTIFICADOR",
+null,null,null,"incluir","main","subrotina","abre_chaves","fecha_chaves",
+"abre_colchetes","fecha_colchetes","abre_parenteses","fecha_parenteses",
+"inteiro","real","caractere","inclusao_arquivo","identificador",
 };
 final static String yyrule[] = {
-"$accept : inicio",
-"inicio : programa",
-"programa : inclusao programa",
-"programa : funcao programa",
-"programa : funcao_principal programa",
-"programa :",
-"funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES",
-"funcao : SUBROTINA declaracao ABRE_PARENTESES parametros FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES",
-"parametros : declaracao",
-"parametros :",
-"inclusao : INCLUIR INCLUSAO_ARQUIVO",
-"comandos : declaracao",
-"comandos :",
-"declaracao : tipo IDENTIFICADOR declaracao",
-"declaracao :",
-"tipo : INTEIRO",
-"tipo : REAL",
-"tipo : CARACTERE",
+"$accept : INICIO",
+"INICIO : PROGRAMA",
+"PROGRAMA : INCLUSAO PROGRAMA",
+"PROGRAMA : FUNCAO PROGRAMA",
+"PROGRAMA : MAIN PROGRAMA",
+"PROGRAMA :",
+"MAIN : main abre_chaves COMANDOS fecha_chaves",
+"FUNCAO : subrotina DECLARACAO abre_parenteses PARAMETROS fecha_parenteses abre_chaves COMANDOS fecha_chaves",
+"PARAMETROS : DECLARACAO",
+"PARAMETROS :",
+"INCLUSAO : incluir inclusao_arquivo",
+"COMANDOS : DECLARACAO",
+"COMANDOS :",
+"DECLARACAO : TIPO identificador DECLARACAO",
+"DECLARACAO :",
+"TIPO : inteiro",
+"TIPO : real",
+"TIPO : caractere",
 };
 
-//#line 69 "inicioCT.y"
+//#line 97 "inicioCT.y"
 /* Início do Código em Java */
 
 	// Referencia ao JFlex
@@ -301,7 +300,7 @@ final static String yyrule[] = {
 				System.err.println("Error: " + ex);
 			}
 	}
-//#line 233 "Parser.java"
+//#line 232 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -456,74 +455,74 @@ boolean doaction;
       {
 //########## USER-SUPPLIED ACTIONS ##########
 case 1:
-//#line 42 "inicioCT.y"
+//#line 48 "inicioCT.y"
 { System.out.println(val_peek(0).sval); }
 break;
 case 2:
-//#line 44 "inicioCT.y"
-{ yyval.sval = val_peek(1).sval + "\n" + val_peek(0).sval; }
+//#line 51 "inicioCT.y"
+{yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 3:
-//#line 45 "inicioCT.y"
-{ yyval.sval = val_peek(1).sval + "\n" + val_peek(0).sval; }
+//#line 52 "inicioCT.y"
+{yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 4:
-//#line 46 "inicioCT.y"
-{ yyval.sval = val_peek(1).sval + "\n" + val_peek(0).sval; }
+//#line 53 "inicioCT.y"
+{yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 5:
-//#line 47 "inicioCT.y"
-{ yyval.sval = "";             }
+//#line 54 "inicioCT.y"
+{yyval.sval=    ""               ;}
 break;
 case 6:
-//#line 49 "inicioCT.y"
-{ yyval.sval = "int main() {\n " + val_peek(1).sval + "}\n"; }
+//#line 56 "inicioCT.y"
+{yyval.sval=    "int main() {\n " + val_peek(1).sval + "}\n"   ;}
 break;
 case 7:
-//#line 51 "inicioCT.y"
-{ yyval.sval = val_peek(6).sval + "(" + val_peek(4).sval + ")" + "{\n " + val_peek(1).sval + "}\n"; }
+//#line 59 "inicioCT.y"
+{yyval.sval=    val_peek(6).sval + "(" + val_peek(4).sval + ")" + "{\n " + val_peek(1).sval + "}\n"   ;}
 break;
 case 8:
-//#line 53 "inicioCT.y"
-{ yyval.sval = val_peek(0).sval; }
+//#line 62 "inicioCT.y"
+{yyval.sval=    val_peek(0).sval   ;}
 break;
 case 9:
-//#line 54 "inicioCT.y"
-{ yyval.sval = ""; }
+//#line 63 "inicioCT.y"
+{yyval.sval=    ""   ;}
 break;
 case 10:
-//#line 56 "inicioCT.y"
-{ yyval.sval = "#include " + val_peek(0).sval; }
+//#line 66 "inicioCT.y"
+{yyval.sval=    "#include " + val_peek(0).sval   ;}
 break;
 case 11:
-//#line 58 "inicioCT.y"
-{ yyval.sval = val_peek(0).sval; }
+//#line 69 "inicioCT.y"
+{yyval.sval=    val_peek(0).sval   ;}
 break;
 case 12:
-//#line 59 "inicioCT.y"
-{ yyval.sval = ""; }
+//#line 70 "inicioCT.y"
+{yyval.sval=    ""   ;}
 break;
 case 13:
-//#line 61 "inicioCT.y"
-{ yyval.sval = val_peek(2).sval + val_peek(1).sval + ";\n" + val_peek(0).sval; }
+//#line 73 "inicioCT.y"
+{yyval.sval=    val_peek(2).sval + val_peek(1).sval + ";\n" + val_peek(0).sval   ;}
 break;
 case 14:
-//#line 62 "inicioCT.y"
-{ yyval.sval = "";                   }
+//#line 74 "inicioCT.y"
+{yyval.sval=    ""                     ;}
 break;
 case 15:
-//#line 64 "inicioCT.y"
-{ yyval.sval = "int ";    }
+//#line 77 "inicioCT.y"
+{yyval.sval=    "int "      ;}
 break;
 case 16:
-//#line 65 "inicioCT.y"
-{ yyval.sval = "double "; }
+//#line 78 "inicioCT.y"
+{yyval.sval=    "double "   ;}
 break;
 case 17:
-//#line 66 "inicioCT.y"
-{ yyval.sval = "char ";   }
+//#line 79 "inicioCT.y"
+{yyval.sval=    "char "     ;}
 break;
-//#line 450 "Parser.java"
+//#line 449 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

@@ -6,35 +6,37 @@
 
 /* BYACC Declarations */
 
-%token INCLUIR
+%token incluir
 
-%token FUNCAO_PRINCIPAL
-%token SUBROTINA
+%token main
+%token subrotina
 
-%token ABRE_CHAVES
-%token FECHA_CHAVES
-%token ABRE_COLCHETES
-%token FECHA_COLCHETES
-%token ABRE_PARENTESES
-%token FECHA_PARENTESES
+%token abre_chaves
+%token fecha_chaves
+%token abre_colchetes
+%token fecha_colchetes
+%token abre_parenteses
+%token fecha_parenteses
 
-%token INTEIRO
-%token REAL
-%token CARACTERE
-
-
-%token <sval> INCLUSAO_ARQUIVO
-%token <sval> IDENTIFICADOR
+%token inteiro
+%token real
+%token caractere
 
 
-%type <sval> programa
-%type <sval> inclusao
-%type <sval> funcao_main
-%type <sval> funcao
-%type <sval> parametros
-%type <sval> comandos
-%type <sval> declaracao
-%type <sval> tipo
+
+%token <sval> inclusao_arquivo
+%token <sval> identificador
+
+
+
+%type <sval> PROGRAMA
+%type <sval> INCLUSAO
+%type <sval> MAIN
+%type <sval> FUNCAO
+%type <sval> PARAMETROS
+%type <sval> COMANDOS
+%type <sval> DECLARACAO
+%type <sval> TIPO
 
 
 
@@ -43,39 +45,38 @@
 
 /* Inicio das regras da gramática */
 %%
-inicio      : programa	 { System.out.println($1); }
+INICIO      : PROGRAMA	 { System.out.println($1); }
 
 
-programa    : inclusao         programa {$$=    $1 + "\n" + $2   ;}
-				    | funcao           programa {$$=    $1 + "\n" + $2   ;}
-		        | funcao_main      programa {$$=    $1 + "\n" + $2   ;}
+PROGRAMA    : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
+				    | FUNCAO           PROGRAMA {$$=    $1 + "\n" + $2   ;}
+		        | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
 	          |					                  {$$=    ""               ;}
 
-
-funcao_main : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES {$$=    "int main() {\n " + $3 + "}\n"   ;}
-
-
-funcao      : SUBROTINA declaracao ABRE_PARENTESES parametros FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$=    $2 + "(" + $4 + ")" + "{\n " + $7 + "}\n"   ;}
+MAIN        : main abre_chaves COMANDOS fecha_chaves {$$=    "int main() {\n " + $3 + "}\n"   ;}
 
 
-parametros  : declaracao {$$=    $1   ;}
+FUNCAO      : subrotina DECLARACAO abre_parenteses PARAMETROS fecha_parenteses abre_chaves COMANDOS fecha_chaves {$$=    $2 + "(" + $4 + ")" + "{\n " + $7 + "}\n"   ;}
+
+
+PARAMETROS  : DECLARACAO {$$=    $1   ;}
             |            {$$=    ""   ;}
 
 
-inclusao    : INCLUIR INCLUSAO_ARQUIVO	{$$=    "#include " + $2   ;}
+INCLUSAO    : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
 
 
-comandos    : declaracao	{$$=    $1   ;}
+COMANDOS    : DECLARACAO	{$$=    $1   ;}
 		        |					    {$$=    ""   ;}
 
 
-declaracao  : tipo IDENTIFICADOR declaracao	  {$$=    $1 + $2 + ";\n" + $3   ;}
+DECLARACAO  : TIPO identificador DECLARACAO	  {$$=    $1 + $2 + ";\n" + $3   ;}
 		        |                                 {$$=    ""                     ;}
 
 
-tipo        : INTEIRO   {$$=    "int "      ;}
-            | REAL      {$$=    "double "   ;}
-		        | CARACTERE {$$=    "char "     ;}
+TIPO        : inteiro   {$$=    "int "      ;}
+            | real      {$$=    "double "   ;}
+		        | caractere {$$=    "char "     ;}
 
 
 
