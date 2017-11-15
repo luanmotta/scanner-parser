@@ -24,7 +24,7 @@ NL = \n | \r | \r\n
 incluir	         { return Parser.INCLUIR;          }
 
 funcao_principal { return Parser.FUNCAO_PRINCIPAL; }
-funcao           { return Parser.SUBROTINA;           }
+funcao           { return Parser.SUBROTINA;        }
 
 "{"	             { return Parser.ABRE_CHAVES;      }
 "}"              { return Parser.FECHA_CHAVES;     }
@@ -42,7 +42,7 @@ caracter         { return Parser.CARACTERE;        }
 	return Parser.INCLUSAO_ARQUIVO;
 }
 
-[a-zA-Z][a-zA-Z0-9]*	{
+[a-zA-Z_][_a-zA-Z0-9]*	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.IDENTIFICADOR;
 }

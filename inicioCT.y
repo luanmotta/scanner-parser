@@ -18,7 +18,6 @@
 %token ABRE_PARENTESES
 %token FECHA_PARENTESES
 
-
 %token INTEIRO
 %token REAL
 %token CARACTERE
@@ -36,6 +35,7 @@
 %type <sval> comandos
 %type <sval> declaracao
 %type <sval> tipo
+
 
 /* Inicio das regras da gramática */
 %%
@@ -59,7 +59,7 @@ comandos : declaracao	{ $$ = $1; }
 		     |					  { $$ = ""; }
 
 declaracao : tipo IDENTIFICADOR declaracao	  { $$ = $1 + $2 + ";\n" + $3; }
-		       |                                  { $$ = "";                        }
+		       |                                  { $$ = "";                   }
 
 tipo : INTEIRO   { $$ = "int ";    }
      | REAL      { $$ = "double "; }
