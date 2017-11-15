@@ -509,7 +509,7 @@ case 13:
 break;
 case 14:
 //#line 62 "inicioCT.y"
-{ yyval.sval = "";                        }
+{ yyval.sval = "";                   }
 break;
 case 15:
 //#line 64 "inicioCT.y"

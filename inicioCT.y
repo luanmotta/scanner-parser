@@ -29,7 +29,7 @@
 
 %type <sval> programa
 %type <sval> inclusao
-%type <sval> funcao_principal
+%type <sval> funcao_main
 %type <sval> funcao
 %type <sval> parametros
 %type <sval> comandos
@@ -37,33 +37,60 @@
 %type <sval> tipo
 
 
+
+
+
+
 /* Inicio das regras da gramática */
 %%
-inicio   : programa	 { System.out.println($1); }
+inicio      : programa	 { System.out.println($1); }
 
-programa : inclusao         programa { $$ = $1 + "\n" + $2; }
-				 | funcao           programa { $$ = $1 + "\n" + $2; }
-		     | funcao_principal programa { $$ = $1 + "\n" + $2; }
-	       |					                 { $$ = "";             }
 
-funcao_principal : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES { $$ = "int main() {\n " + $3 + "}\n"; }
+programa    : inclusao         programa {$$=    $1 + "\n" + $2   ;}
+				    | funcao           programa {$$=    $1 + "\n" + $2   ;}
+		        | funcao_main      programa {$$=    $1 + "\n" + $2   ;}
+	          |					                  {$$=    ""               ;}
 
-funcao : SUBROTINA declaracao ABRE_PARENTESES parametros FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES { $$ = $2 + "(" + $4 + ")" + "{\n " + $7 + "}\n"; }
 
-parametros : declaracao { $$ = $1; }
-           |            { $$ = ""; }
+funcao_main : FUNCAO_PRINCIPAL ABRE_CHAVES comandos FECHA_CHAVES {$$=    "int main() {\n " + $3 + "}\n"   ;}
 
-inclusao : INCLUIR INCLUSAO_ARQUIVO	{ $$ = "#include " + $2; }
 
-comandos : declaracao	{ $$ = $1; }
-		     |					  { $$ = ""; }
+funcao      : SUBROTINA declaracao ABRE_PARENTESES parametros FECHA_PARENTESES ABRE_CHAVES comandos FECHA_CHAVES {$$=    $2 + "(" + $4 + ")" + "{\n " + $7 + "}\n"   ;}
 
-declaracao : tipo IDENTIFICADOR declaracao	  { $$ = $1 + $2 + ";\n" + $3; }
-		       |                                  { $$ = "";                   }
 
-tipo : INTEIRO   { $$ = "int ";    }
-     | REAL      { $$ = "double "; }
-		 | CARACTERE { $$ = "char ";   }
+parametros  : declaracao {$$=    $1   ;}
+            |            {$$=    ""   ;}
+
+
+inclusao    : INCLUIR INCLUSAO_ARQUIVO	{$$=    "#include " + $2   ;}
+
+
+comandos    : declaracao	{$$=    $1   ;}
+		        |					    {$$=    ""   ;}
+
+
+declaracao  : tipo IDENTIFICADOR declaracao	  {$$=    $1 + $2 + ";\n" + $3   ;}
+		        |                                 {$$=    ""                     ;}
+
+
+tipo        : INTEIRO   {$$=    "int "      ;}
+            | REAL      {$$=    "double "   ;}
+		        | CARACTERE {$$=    "char "     ;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%
 /* Início do Código em Java */
