@@ -89,7 +89,7 @@ ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
 
 
 EXPRESSAO       : VALOR operador EXPRESSAO {$$=    $1 + " " + $2 + " " + $3    ;}
-                | VALOR                    {$$=    $1              ;}
+                | VALOR                    {$$=    $1                          ;}
 
 
 VALOR           : valor_primitivo {$$=    $1    ;}

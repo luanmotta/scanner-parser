@@ -537,7 +537,7 @@ case 16:
 break;
 case 17:
 //#line 92 "inicioCT.y"
-{yyval.sval=    val_peek(0).sval              ;}
+{yyval.sval=    val_peek(0).sval                          ;}
 break;
 case 18:
 //#line 95 "inicioCT.y"

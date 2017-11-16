@@ -54,7 +54,7 @@ caracter         { return Parser.caracter;         }
 	return Parser.comentario;
 }
 
-\+ {
+[\/\*\-\+] {
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.operador;
 }
