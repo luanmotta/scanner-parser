@@ -1,12 +1,8 @@
 INCLUDES: #include
-DEFINES: #define
 
 TIPO: int | double | char
 
-STRING: "."
-NUMERO: [0-9]\.[0-9]
-
-VALOR_PRIMITIVO: STRING | NUMERO
+VALOR_PRIMITIVO: ([0-9]+)|'.*'
 
 
 COMENTARIO: /* */ | //

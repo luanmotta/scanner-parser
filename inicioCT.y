@@ -28,6 +28,7 @@
 %token <sval> inclusao_arquivo
 %token <sval> valor_primitivo
 %token <sval> identificador
+%token <sval> comentario
 
 
 
@@ -36,6 +37,7 @@
 %type <sval> MAIN
 %type <sval> BLOCO
 %type <sval> CONTEUDO
+%type <sval> LINHA
 %type <sval> EXECUCAO
 %type <sval> ATRIBUICAO
 %type <sval> DECLARACAO
@@ -65,11 +67,14 @@ MAIN            : main BLOCO {$$=    "\nint main()" + $2   ;}
 BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}
 
 
-CONTEUDO        : EXECUCAO CONTEUDO {$$=   $1 + $2   ;}
-                | EXECUCAO          {$$=   $1        ;}
+CONTEUDO        : LINHA CONTEUDO {$$=   "  " + $1 + "\n" + $2   ;}
+                | LINHA          {$$=   "  " + $1 + "\n"        ;}
 
-EXECUCAO        : DECLARACAO {$$=   "  " + $1 + ";\n"   ;}
-					      | ATRIBUICAO {$$=   "  " + $1 + ";\n"   ;}
+LINHA           : EXECUCAO    {$$=    $1     ;}
+                | comentario  {$$=    $1     ;}
+
+EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
+					      | ATRIBUICAO {$$=    $1 + ";"   ;}
 
 
 ATRIBUICAO      : identificador atribuicao VALOR {$$=  $1 + " = " + $3   ;}

@@ -8,5 +8,9 @@ funcao_principal {
 	teste1 := 55
 	teste2 := ''
 
+	// comentario
+
+	/* comentario */
+
 
 }
