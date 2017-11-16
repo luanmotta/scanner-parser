@@ -4,5 +4,8 @@ incluir <stdlib.h>
 funcao_principal {
 	inteiro teste1
 	caracter teste2[tamanho]
+
 	teste2 := 55
+
+
 }
