@@ -172,38 +172,38 @@ public final static short inclusao_arquivo=268;
 public final static short identificador=269;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
-    0,    1,    1,    1,    3,    2,    4,    4,    5,    5,
-    6,    6,    6,
+    0,    1,    1,    1,    2,    3,    4,    5,    6,    7,
+    7,    7,
 };
 final static short yylen[] = {                            2,
-    1,    2,    2,    0,    4,    2,    1,    0,    3,    0,
-    1,    1,    1,
+    1,    2,    2,    0,    2,    2,    3,    1,    2,    1,
+    1,    1,
 };
 final static short yydefred[] = {                         0,
-    0,    0,    0,    1,    0,    0,    6,    0,    2,    3,
-   11,   12,   13,    0,    7,    0,    5,    0,    9,
+    0,    0,    0,    1,    0,    0,    5,    0,    6,    2,
+    3,   10,   11,   12,    0,    8,    0,    7,    9,
 };
 final static short yydgoto[] = {                          3,
-    4,    5,    6,   14,   15,   16,
+    4,    5,    6,    9,   15,   16,   17,
 };
 final static short yysindex[] = {                      -254,
  -263, -251,    0,    0, -254, -254,    0, -265,    0,    0,
-    0,    0,    0, -250,    0, -260,    0, -265,    0,
+    0,    0,    0,    0, -250,    0, -260,    0,    0,
 };
 final static short yyrindex[] = {                        11,
-    0,    0,    0,    0,   11,   11,    0, -248,    0,    0,
-    0,    0,    0,    0,    0,    0,    0, -247,    0,
+    0,    0,    0,    0,   11,   11,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,
 };
 final static short yygindex[] = {                         0,
-    1,    0,    0,    0,   -4,    0,
+    1,    0,    0,    0,    0,    0,    0,
 };
-final static int YYTABLESIZE=14;
+final static int YYTABLESIZE=11;
 static short yytable[];
 static { yytable();}
 static void yytable(){
-yytable = new short[]{                         11,
-   12,   13,    1,    2,    7,    9,   10,    8,   18,   17,
-    4,    8,   10,   19,
+yytable = new short[]{                         12,
+   13,   14,    1,    2,    7,   10,   11,    8,   19,   18,
+    4,
 };
 }
 static short yycheck[];
@@ -211,7 +211,7 @@ static { yycheck(); }
 static void yycheck() {
 yycheck = new short[] {                        265,
   266,  267,  257,  258,  268,    5,    6,  259,  269,  260,
-    0,  260,  260,   18,
+    0,
 };
 }
 final static short YYFINAL=3;
@@ -243,18 +243,17 @@ final static String yyrule[] = {
 "PROGRAMA : INCLUSAO PROGRAMA",
 "PROGRAMA : MAIN PROGRAMA",
 "PROGRAMA :",
-"MAIN : main abre_chaves COMANDOS fecha_chaves",
 "INCLUSAO : incluir inclusao_arquivo",
-"COMANDOS : DECLARACAO",
-"COMANDOS :",
-"DECLARACAO : TIPO identificador DECLARACAO",
-"DECLARACAO :",
+"MAIN : main BLOCO",
+"BLOCO : abre_chaves CONTEUDO fecha_chaves",
+"CONTEUDO : DECLARACAO",
+"DECLARACAO : TIPO identificador",
 "TIPO : inteiro",
 "TIPO : real",
 "TIPO : caractere",
 };
 
-//#line 86 "inicioCT.y"
+//#line 88 "inicioCT.y"
 /* Início do Código em Java */
 
 	// Referencia ao JFlex
@@ -290,7 +289,7 @@ final static String yyrule[] = {
 				System.err.println("Error: " + ex);
 			}
 	}
-//#line 222 "Parser.java"
+//#line 221 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -445,58 +444,54 @@ boolean doaction;
       {
 //########## USER-SUPPLIED ACTIONS ##########
 case 1:
-//#line 45 "inicioCT.y"
+//#line 46 "inicioCT.y"
 { System.out.println(val_peek(0).sval); }
 break;
 case 2:
-//#line 48 "inicioCT.y"
-{yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
-break;
-case 3:
 //#line 49 "inicioCT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
-case 4:
+case 3:
 //#line 50 "inicioCT.y"
+{yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
+break;
+case 4:
+//#line 51 "inicioCT.y"
 {yyval.sval=    ""               ;}
 break;
 case 5:
-//#line 52 "inicioCT.y"
-{yyval.sval=    "int main() {\n " + val_peek(1).sval + "}\n"   ;}
-break;
-case 6:
-//#line 55 "inicioCT.y"
+//#line 53 "inicioCT.y"
 {yyval.sval=    "#include " + val_peek(0).sval   ;}
 break;
+case 6:
+//#line 56 "inicioCT.y"
+{yyval.sval=    "int main()" + val_peek(0).sval   ;}
+break;
 case 7:
-//#line 58 "inicioCT.y"
-{yyval.sval=    val_peek(0).sval   ;}
+//#line 59 "inicioCT.y"
+{yyval.sval=    "{\n" + val_peek(1).sval + "}\n"  ;}
 break;
 case 8:
-//#line 59 "inicioCT.y"
-{yyval.sval=    ""   ;}
+//#line 62 "inicioCT.y"
+{yyval.sval=   val_peek(0).sval   ;}
 break;
 case 9:
-//#line 62 "inicioCT.y"
-{yyval.sval=    val_peek(2).sval + val_peek(1).sval + ";\n" + val_peek(0).sval   ;}
+//#line 65 "inicioCT.y"
+{yyval.sval=    val_peek(1).sval + val_peek(0).sval + ";\n"   ;}
 break;
 case 10:
-//#line 63 "inicioCT.y"
-{yyval.sval=    ""                     ;}
-break;
-case 11:
-//#line 66 "inicioCT.y"
+//#line 68 "inicioCT.y"
 {yyval.sval=    "int "      ;}
 break;
-case 12:
-//#line 67 "inicioCT.y"
+case 11:
+//#line 69 "inicioCT.y"
 {yyval.sval=    "double "   ;}
 break;
-case 13:
-//#line 68 "inicioCT.y"
+case 12:
+//#line 70 "inicioCT.y"
 {yyval.sval=    "char "     ;}
 break;
-//#line 423 "Parser.java"
+//#line 418 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

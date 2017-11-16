@@ -31,7 +31,8 @@
 %type <sval> PROGRAMA
 %type <sval> INCLUSAO
 %type <sval> MAIN
-%type <sval> COMANDOS
+%type <sval> BLOCO
+%type <sval> CONTEUDO
 %type <sval> DECLARACAO
 %type <sval> TIPO
 
@@ -49,18 +50,19 @@ PROGRAMA    : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
 		        | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
 	          |					                  {$$=    ""               ;}
 
-MAIN        : main abre_chaves COMANDOS fecha_chaves {$$=    "int main() {\n " + $3 + "}\n"   ;}
-
-
 INCLUSAO    : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
 
 
-COMANDOS    : DECLARACAO	{$$=    $1   ;}
-		        |					    {$$=    ""   ;}
+MAIN        : main BLOCO {$$=    "int main()" + $2   ;}
 
 
-DECLARACAO  : TIPO identificador DECLARACAO	  {$$=    $1 + $2 + ";\n" + $3   ;}
-		        |                                 {$$=    ""                     ;}
+BLOCO       : abre_chaves CONTEUDO fecha_chaves {$$=    "{\n" + $2 + "}\n"  ;}
+
+
+CONTEUDO    : DECLARACAO {$$=   $1   ;}
+
+
+DECLARACAO  : TIPO identificador {$$=    $1 + $2 + ";\n"   ;}
 
 
 TIPO        : inteiro   {$$=    "int "      ;}
