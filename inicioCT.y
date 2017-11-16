@@ -17,6 +17,8 @@
 %token abre_parenteses
 %token fecha_parenteses
 
+%token atribuicao
+
 %token inteiro
 %token real
 %token caractere
@@ -24,6 +26,7 @@
 
 
 %token <sval> inclusao_arquivo
+%token <sval> valor_primitivo
 %token <sval> identificador
 
 
@@ -33,7 +36,10 @@
 %type <sval> MAIN
 %type <sval> BLOCO
 %type <sval> CONTEUDO
+%type <sval> EXECUCAO
+%type <sval> ATRIBUICAO
 %type <sval> DECLARACAO
+%type <sval> VALOR
 %type <sval> TIPO
 
 
@@ -43,31 +49,41 @@
 
 /* Inicio das regras da gramática */
 %%
-INICIO      : PROGRAMA	 { System.out.println($1); }
+INICIO          : PROGRAMA	 { System.out.println("\n\n\n" + $1); }
 
 
-PROGRAMA    : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
-		        | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
-	          |					                  {$$=    ""               ;}
+PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
+		            | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
+	              |					                  {$$=    ""               ;}
 
-INCLUSAO    : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
-
-
-MAIN        : main BLOCO {$$=    "int main()" + $2   ;}
+INCLUSAO        : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
 
 
-BLOCO       : abre_chaves CONTEUDO fecha_chaves {$$=    "{\n" + $2 + "}\n"  ;}
+MAIN            : main BLOCO {$$=    "\nint main()" + $2   ;}
 
 
-CONTEUDO    : DECLARACAO {$$=   $1   ;}
+BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}
 
 
-DECLARACAO  : TIPO identificador {$$=    $1 + $2 + ";\n"   ;}
+CONTEUDO        : EXECUCAO CONTEUDO {$$=   $1 + $2   ;}
+                | EXECUCAO          {$$=   $1        ;}
+
+EXECUCAO        : DECLARACAO {$$=   "  " + $1 + ";\n"   ;}
+					      | ATRIBUICAO {$$=   "  " + $1 + ";\n"   ;}
 
 
-TIPO        : inteiro   {$$=    "int "      ;}
-            | real      {$$=    "double "   ;}
-		        | caractere {$$=    "char "     ;}
+ATRIBUICAO      : identificador atribuicao VALOR {$$=  $1 + " = " + $3   ;}
+
+
+DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
+
+
+VALOR           : valor_primitivo {$$=    $1   ;}
+
+
+TIPO            : inteiro   {$$=    "int "      ;}
+                | real      {$$=    "double "   ;}
+		            | caractere {$$=    "char "     ;}
 
 
 

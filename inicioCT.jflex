@@ -32,6 +32,8 @@ funcao_principal { return Parser.main;             }
 "("	             { return Parser.abre_parenteses;  }
 ")"              { return Parser.fecha_parenteses; }
 
+":="             { return Parser.atribuicao;       }
+
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }
 caracter         { return Parser.caractere;        }
@@ -40,6 +42,11 @@ caracter         { return Parser.caractere;        }
 \<.*\>	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.inclusao_arquivo;
+}
+
+[0-9]+ {
+	yyparser.yylval = new ParserVal(yytext());
+	return Parser.valor_primitivo;
 }
 
 [a-zA-Z_][_a-zA-Z0-9]*	{

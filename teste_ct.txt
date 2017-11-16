@@ -2,5 +2,7 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao_principal {
-	inteiro teste
+	inteiro teste1
+	real teste2
+	teste2 := 55
 }
