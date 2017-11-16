@@ -54,6 +54,11 @@ caracter         { return Parser.caracter;         }
 	return Parser.comentario;
 }
 
+\+ {
+	yyparser.yylval = new ParserVal(yytext());
+	return Parser.operador;
+}
+
 [a-zA-Z_][_a-zA-Z0-9\[\]]*	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;

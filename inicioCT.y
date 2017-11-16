@@ -29,6 +29,7 @@
 %token <sval> valor_primitivo
 %token <sval> identificador
 %token <sval> comentario
+%token <sval> operador
 
 
 
@@ -87,7 +88,8 @@ DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
 
 
-EXPRESSAO       : VALOR  {$$=    $1    ;}
+EXPRESSAO       : VALOR operador EXPRESSAO {$$=    $1 + " " + $2 + " " + $3    ;}
+                | VALOR                    {$$=    $1              ;}
 
 
 VALOR           : valor_primitivo {$$=    $1    ;}
