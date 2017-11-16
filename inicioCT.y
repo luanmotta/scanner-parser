@@ -39,8 +39,9 @@
 %type <sval> CONTEUDO
 %type <sval> LINHA
 %type <sval> EXECUCAO
-%type <sval> ATRIBUICAO
 %type <sval> DECLARACAO
+%type <sval> ATRIBUICAO
+%type <sval> EXPRESSAO
 %type <sval> VALOR
 %type <sval> TIPO
 
@@ -80,10 +81,13 @@ EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
 
 
-ATRIBUICAO      : identificador atribuicao VALOR {$$=  $1 + " = " + $3   ;}
-
-
 DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
+
+
+ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
+
+
+EXPRESSAO       : VALOR  {$$=    $1    ;}
 
 
 VALOR           : valor_primitivo {$$=    $1    ;}
