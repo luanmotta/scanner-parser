@@ -1,11 +1,6 @@
 incluir <stdio.h>
 incluir <stdlib.h>
 
-funcao inteiro geraValores () {
-  inteiro retorno
-}
-
 funcao_principal {
-	real teste1
-	inteiro teste2
+	inteiro teste
 }

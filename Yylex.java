@@ -52,8 +52,8 @@ class Yylex {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\2\1\5\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\10\1\0\4\2\1\11\10\2\1\12\10\2\1\13"+
-    "\1\14\1\15\2\2\1\16\10\2\1\17";
+    "\1\10\1\0\4\2\1\11\10\2\1\12\11\2\1\13"+
+    "\1\14\2\2\1\15\10\2\1\16";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[52];
@@ -613,65 +613,61 @@ class Yylex {
           case 1: 
             { 
             }
-          case 16: break;
+          case 15: break;
           case 2: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;
             }
-          case 17: break;
+          case 16: break;
           case 3: 
             { return Parser.abre_chaves;
             }
-          case 18: break;
+          case 17: break;
           case 4: 
             { return Parser.fecha_chaves;
             }
-          case 19: break;
+          case 18: break;
           case 5: 
             { return Parser.abre_colchetes;
             }
-          case 20: break;
+          case 19: break;
           case 6: 
             { return Parser.fecha_colchetes;
             }
-          case 21: break;
+          case 20: break;
           case 7: 
             { return Parser.abre_parenteses;
             }
-          case 22: break;
+          case 21: break;
           case 8: 
             { return Parser.fecha_parenteses;
             }
-          case 23: break;
+          case 22: break;
           case 9: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.inclusao_arquivo;
             }
-          case 24: break;
+          case 23: break;
           case 10: 
             { return Parser.real;
             }
-          case 25: break;
+          case 24: break;
           case 11: 
-            { return Parser.subrotina;
-            }
-          case 26: break;
-          case 12: 
             { return Parser.incluir;
             }
-          case 27: break;
-          case 13: 
+          case 25: break;
+          case 12: 
             { return Parser.inteiro;
             }
-          case 28: break;
-          case 14: 
+          case 26: break;
+          case 13: 
             { return Parser.caractere;
             }
-          case 29: break;
-          case 15: 
+          case 27: break;
+          case 14: 
             { return Parser.main;
             }
-          case 30: break;
+          case 28: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
