@@ -14,6 +14,7 @@ funcao_principal {
 	teste1 := teste2 * teste2
 	teste1 := 5 / teste2
 
+
 	// comentario
 
 	/* comentario */
