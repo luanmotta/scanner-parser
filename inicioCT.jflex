@@ -36,7 +36,7 @@ funcao_principal { return Parser.main;             }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }
-caracter         { return Parser.caractere;        }
+caracter         { return Parser.caracter;        }
 
 
 \<.*\>	{
@@ -49,7 +49,7 @@ caracter         { return Parser.caractere;        }
 	return Parser.valor_primitivo;
 }
 
-[a-zA-Z_][_a-zA-Z0-9]*	{
+[a-zA-Z_][_a-zA-Z0-9\[\]]*	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;
 }

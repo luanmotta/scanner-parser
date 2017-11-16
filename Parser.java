@@ -172,6 +172,7 @@ public final static short caractere=268;
 public final static short inclusao_arquivo=269;
 public final static short valor_primitivo=270;
 public final static short identificador=271;
+public final static short caracter=272;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     0,    1,    1,    1,    2,    3,    4,    5,    5,    6,
@@ -183,15 +184,15 @@ final static short yylen[] = {                            2,
 };
 final static short yydefred[] = {                         0,
     0,    0,    0,    1,    0,    0,    5,    0,    6,    2,
-    3,   15,   16,   17,    0,    0,    0,   11,   10,    0,
+    3,   15,   16,    0,   17,    0,    0,   11,   10,    0,
     0,    7,    8,   13,   14,   12,
 };
 final static short yydgoto[] = {                          3,
     4,    5,    6,    9,   16,   17,   18,   19,   26,   20,
 };
-final static short yysindex[] = {                      -254,
- -261, -250,    0,    0, -254, -254,    0, -266,    0,    0,
-    0,    0,    0,    0, -255, -249, -266,    0,    0, -259,
+final static short yysindex[] = {                      -255,
+ -265, -250,    0,    0, -255, -255,    0, -266,    0,    0,
+    0,    0,    0, -254,    0, -248, -266,    0,    0, -261,
  -257,    0,    0,    0,    0,    0,
 };
 final static short yyrindex[] = {                        14,
@@ -200,27 +201,27 @@ final static short yyrindex[] = {                        14,
     0,    0,    0,    0,    0,    0,
 };
 final static short yygindex[] = {                         0,
-    1,    0,    0,    0,   -1,    0,    0,    0,    0,    0,
+    2,    0,    0,    0,   -1,    0,    0,    0,    0,    0,
 };
 final static int YYTABLESIZE=16;
 static short yytable[];
 static { yytable();}
 static void yytable(){
 yytable = new short[]{                         12,
-   13,   14,    1,    2,   15,   10,   11,    7,    8,   21,
-   22,   24,   25,    4,    9,   23,
+   13,    1,    2,    7,   14,   15,   10,   11,    8,   24,
+   21,   22,   25,    4,    9,   23,
 };
 }
 static short yycheck[];
 static { yycheck(); }
 static void yycheck() {
 yycheck = new short[] {                        266,
-  267,  268,  257,  258,  271,    5,    6,  269,  259,  265,
-  260,  271,  270,    0,  260,   17,
+  267,  257,  258,  269,  271,  272,    5,    6,  259,  271,
+  265,  260,  270,    0,  260,   17,
 };
 }
 final static short YYFINAL=3;
-final static short YYMAXTOKEN=271;
+final static short YYMAXTOKEN=272;
 final static String yyname[] = {
 "end-of-file",null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
@@ -241,6 +242,7 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,"incluir","main","abre_chaves","fecha_chaves","abre_colchetes",
 "fecha_colchetes","abre_parenteses","fecha_parenteses","atribuicao","inteiro",
 "real","caractere","inclusao_arquivo","valor_primitivo","identificador",
+"caracter",
 };
 final static String yyrule[] = {
 "$accept : INICIO",
@@ -260,7 +262,7 @@ final static String yyrule[] = {
 "VALOR : valor_primitivo",
 "TIPO : inteiro",
 "TIPO : real",
-"TIPO : caractere",
+"TIPO : caracter",
 };
 
 //#line 104 "inicioCT.y"
@@ -299,7 +301,7 @@ final static String yyrule[] = {
 				System.err.println("Error: " + ex);
 			}
 	}
-//#line 231 "Parser.java"
+//#line 233 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -521,7 +523,7 @@ case 17:
 //#line 86 "inicioCT.y"
 {yyval.sval=    "char "     ;}
 break;
-//#line 448 "Parser.java"
+//#line 450 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

@@ -83,7 +83,7 @@ VALOR           : valor_primitivo {$$=    $1   ;}
 
 TIPO            : inteiro   {$$=    "int "      ;}
                 | real      {$$=    "double "   ;}
-		            | caractere {$$=    "char "     ;}
+		            | caracter  {$$=    "char "     ;}
 
 
 
