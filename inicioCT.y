@@ -58,6 +58,7 @@ PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
 		            | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
 	              |					                  {$$=    ""               ;}
 
+
 INCLUSAO        : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
 
 
@@ -70,8 +71,10 @@ BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n" 
 CONTEUDO        : LINHA CONTEUDO {$$=   "  " + $1 + "\n" + $2   ;}
                 | LINHA          {$$=   "  " + $1 + "\n"        ;}
 
+
 LINHA           : EXECUCAO    {$$=    $1     ;}
                 | comentario  {$$=    $1     ;}
+
 
 EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
@@ -83,7 +86,8 @@ ATRIBUICAO      : identificador atribuicao VALOR {$$=  $1 + " = " + $3   ;}
 DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 
 
-VALOR           : valor_primitivo {$$=    $1   ;}
+VALOR           : valor_primitivo {$$=    $1    ;}
+                | identificador   {$$=    $1    ;}
 
 
 TIPO            : inteiro   {$$=    "int "      ;}

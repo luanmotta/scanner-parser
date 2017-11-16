@@ -3,10 +3,12 @@ incluir <stdlib.h>
 
 funcao_principal {
 	inteiro teste1
-	caracter teste2[tamanho]
+	inteiro teste2
+	caracter teste3[tamanho]
 
 	teste1 := 55
-	teste2 := ''
+	teste1 := teste2
+	teste3 := ''
 
 	// comentario
 
