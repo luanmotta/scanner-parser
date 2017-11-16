@@ -5,7 +5,8 @@ funcao_principal {
 	inteiro teste1
 	caracter teste2[tamanho]
 
-	teste2 := 55
+	teste1 := 55
+	teste2 := ''
 
 
 }

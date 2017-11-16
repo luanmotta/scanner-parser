@@ -44,7 +44,7 @@ caracter         { return Parser.caracter;        }
 	return Parser.inclusao_arquivo;
 }
 
-[0-9]+ {
+([0-9]+)|'.*' {
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.valor_primitivo;
 }
