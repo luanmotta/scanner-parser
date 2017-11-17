@@ -19,6 +19,8 @@
 
 %token atribuicao
 
+%token retornar
+
 %token inteiro
 %token real
 %token caracter
@@ -108,7 +110,7 @@ CONDICIONAL     : TIPO   {$$=    $1    ;}
 LACO            : TIPO   {$$=    $1    ;}
 
 
-RETURN          : TIPO   {$$=    $1    ;}
+RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
 
 
 EXPRESSAO       : EXP                      {$$=    $1              ;}

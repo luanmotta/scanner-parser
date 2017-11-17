@@ -22,6 +22,6 @@ funcao_principal {
 	teste2 := (55 * teste1) + 15
 
 	// fim
-	// retonar 0
-
+	retornar 0
+	// acabou
 }

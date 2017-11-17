@@ -34,6 +34,8 @@ funcao_principal { return Parser.main;             }
 
 ":="             { return Parser.atribuicao;       }
 
+retornar         { return Parser.retornar;         }
+
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }
 caracter         { return Parser.caracter;         }
