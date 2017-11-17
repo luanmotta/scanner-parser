@@ -21,7 +21,7 @@
 
 %token inteiro
 %token real
-%token caractere
+%token caracter
 
 
 
@@ -44,6 +44,7 @@
 %type <sval> ATRIBUICAO
 %type <sval> EXPRESSAO
 %type <sval> EXP
+%type <sval> OPERACAO
 %type <sval> VALOR
 %type <sval> TIPO
 
@@ -89,11 +90,16 @@ DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
 
 
-EXPRESSAO       : EXP                                  {$$=    $1              ;}
-                | abre_parenteses EXP fecha_parenteses {$$=    "(" + $2 + ")"  ;}
+EXPRESSAO       : EXP                                               {$$=    $1                     ;}
+                | abre_parenteses EXP fecha_parenteses              {$$=    "(" + $2 + ")"         ;}
+								| abre_parenteses EXP fecha_parenteses OPERACAO     {$$=    "(" + $2 + ") " + $4   ;}
 
-EXP             : VALOR operador EXP {$$=    $1 + " " + $2 + " " + $3    ;}
-                | VALOR              {$$=    $1                          ;}
+
+EXP             : VALOR OPERACAO   {$$=    $1 + $2    ;}
+                | VALOR            {$$=    $1         ;}
+
+
+OPERACAO        : operador EXPRESSAO {$$=    " " + $1 + " " + $2    ;}
 
 
 VALOR           : valor_primitivo {$$=    $1    ;}

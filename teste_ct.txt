@@ -9,10 +9,13 @@ funcao_principal {
 	teste1 := 55
 	teste1 := teste2
 	teste3 := ''
+
 	teste1 := 55 + 41
 	teste1 := teste2 - 41
 	teste1 := teste2 * teste2
 	teste1 := 5 / teste2
+
+	teste2 := (55 * teste1) + 15
 
 
 	// comentario
