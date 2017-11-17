@@ -42,6 +42,10 @@
 %type <sval> EXECUCAO
 %type <sval> DECLARACAO
 %type <sval> ATRIBUICAO
+%type <sval> COMANDO
+%type <sval> CONDICIONAL
+%type <sval> LACO
+%type <sval> RETURN
 %type <sval> EXPRESSAO
 %type <sval> PARENTESES_EXP
 %type <sval> EXP
@@ -84,6 +88,7 @@ LINHA           : EXECUCAO    {$$=    $1     ;}
 
 EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
+								| COMANDO    {$$=    $1         ;}
 
 
 DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
@@ -92,20 +97,33 @@ DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
 
 
+COMANDO         : CONDICIONAL {$$=    $1    ;}
+                | LACO        {$$=    $1    ;}
+								| RETURN      {$$=    $1    ;}
+
+
+CONDICIONAL     : TIPO   {$$=    $1    ;}
+
+
+LACO            : TIPO   {$$=    $1    ;}
+
+
+RETURN          : TIPO   {$$=    $1    ;}
+
+
 EXPRESSAO       : EXP                      {$$=    $1              ;}
                 | PARENTESES_EXP           {$$=    $1              ;}
-								| PARENTESES_EXP OPERACAO  {$$=    $1 + $2   ;}
+								| PARENTESES_EXP OPERACAO  {$$=    $1 + $2         ;}
 
 
 PARENTESES_EXP  : abre_parenteses EXP fecha_parenteses {$$=    "(" + $2 + ")" ;}
 
 
 EXP             : VALOR OPERACAO   {$$=    $1 + $2    ;}
-                | VALOR            {$$=    $1         ;}
 
 
 OPERACAO        : operador EXPRESSAO {$$=    " " + $1 + " " + $2    ;}
-
+                |                    {$$=        ""                 ;}
 
 VALOR           : valor_primitivo {$$=    $1    ;}
                 | identificador   {$$=    $1    ;}
