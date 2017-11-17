@@ -61,6 +61,7 @@ INICIO          : PROGRAMA	 { System.out.println("\n\n\n" + $1); }
 
 PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
 		            | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
+								| comentario       PROGRAMA {$$=    $1 + "\n" + $2   ;}
 	              |					                  {$$=    ""               ;}
 
 

@@ -1,8 +1,12 @@
+// Inclusao de Bibliotecas
+
 incluir <stdio.h>
 incluir <stdlib.h>
 
+
+/* Funcao principal */
 funcao_principal {
-	inteiro teste1
+	real teste1
 	inteiro teste2
 	caracter teste3[tamanho]
 
@@ -17,10 +21,7 @@ funcao_principal {
 
 	teste2 := (55 * teste1) + 15
 
-
-	// comentario
-
-	/* comentario */
-
+	// fim
+	// retonar 0
 
 }
