@@ -43,6 +43,7 @@
 %type <sval> DECLARACAO
 %type <sval> ATRIBUICAO
 %type <sval> EXPRESSAO
+%type <sval> PARENTESES_EXP
 %type <sval> EXP
 %type <sval> OPERACAO
 %type <sval> VALOR
@@ -90,9 +91,12 @@ DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
 
 
-EXPRESSAO       : EXP                                               {$$=    $1                     ;}
-                | abre_parenteses EXP fecha_parenteses              {$$=    "(" + $2 + ")"         ;}
-								| abre_parenteses EXP fecha_parenteses OPERACAO     {$$=    "(" + $2 + ") " + $4   ;}
+EXPRESSAO       : EXP                      {$$=    $1              ;}
+                | PARENTESES_EXP           {$$=    $1              ;}
+								| PARENTESES_EXP OPERACAO  {$$=    $1 + $2   ;}
+
+
+PARENTESES_EXP  : abre_parenteses EXP fecha_parenteses {$$=    "(" + $2 + ")" ;}
 
 
 EXP             : VALOR OPERACAO   {$$=    $1 + $2    ;}
