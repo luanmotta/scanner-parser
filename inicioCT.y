@@ -70,6 +70,9 @@
 %type <sval> FOR
 %type <sval> FOR_PARENTESES
 %type <sval> FOR_COMPOSICAO
+%type <sval> CAN_ATRIBUICAO
+%type <sval> CAN_COMPARACAO
+%type <sval> CAN_EXPRESSAO
 %type <sval> CONDICAO
 %type <sval> COMPARACAO
 %type <sval> EXPRESSAO
@@ -181,7 +184,19 @@ FOR             : para FOR_PARENTESES BLOCO {$$=  "for " + $2 + $3   ;}
 FOR_PARENTESES  : abre_parenteses FOR_COMPOSICAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
 
 
-FOR_COMPOSICAO  : ponto_e_virgula ponto_e_virgula {$$=  ";" + ";"   ;}
+FOR_COMPOSICAO  : CAN_ATRIBUICAO ponto_e_virgula CAN_COMPARACAO ponto_e_virgula CAN_EXPRESSAO {$$= $1 + " ; " + $3 + " ; " + $5  ;}
+
+
+CAN_ATRIBUICAO  : ATRIBUICAO {$$=   $1   ;}
+                |            {$$=   ""   ;}
+
+
+CAN_COMPARACAO  : COMPARACAO {$$=   $1   ;}
+                |            {$$=   ""   ;}
+
+
+CAN_EXPRESSAO   : EXPRESSAO  {$$=   $1   ;}
+                |            {$$=   ""   ;}
 
 
 CONDICAO        : abre_parenteses COMPARACAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
