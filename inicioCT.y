@@ -11,6 +11,8 @@
 %token main
 %token subrotina
 
+%token virgula
+
 %token abre_chaves
 %token fecha_chaves
 %token abre_colchetes
@@ -96,8 +98,9 @@ SUBROTINA       : subrotina DECLARACAO PARAM BLOCO {$$=   "\n" + $2 + " " + $3 +
 PARAM           : abre_parenteses PARAMS fecha_parenteses {$$=   "(" + $2 + ")"    ;}
 
 
-PARAMS          : DECLARACAO {$$=    $1     ;}
-                |            {$$=    ""     ;}
+PARAMS          : DECLARACAO                     {$$=    $1                 ;}
+                | DECLARACAO virgula DECLARACAO  {$$=    $1 + ", " + $3     ;}
+								|                                {$$=    ""                 ;}
 
 
 BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}
@@ -129,8 +132,9 @@ CALL            : identificador CALL_PARAM  {$$=   $1 + $2   ;}
 CALL_PARAM      : abre_parenteses CALL_PARAMS fecha_parenteses  {$$=    "(" + $2 + ")"   ;}
 
 
-CALL_PARAMS     : EXPRESSAO  {$$=    $1     ;}
-                |            {$$=    ""     ;}
+CALL_PARAMS     : EXPRESSAO                    {$$=    $1                 ;}
+                | EXPRESSAO virgula EXPRESSAO  {$$=    $1 + ", " + $3     ;}
+                |                              {$$=    ""                 ;}
 
 
 COMANDO         : CONDICIONAL {$$=    $1    ;}

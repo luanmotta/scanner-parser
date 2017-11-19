@@ -26,6 +26,8 @@ incluir	         { return Parser.incluir;          }
 funcao_principal { return Parser.main;             }
 funcao           { return Parser.subrotina;        }
 
+","	             { return Parser.virgula;          }
+
 "{"	             { return Parser.abre_chaves;      }
 "}"              { return Parser.fecha_chaves;     }
 "["	             { return Parser.abre_colchetes;   }

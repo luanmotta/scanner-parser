@@ -1,4 +1,4 @@
-// Inclusao de Bibliotecas
+// Inclusao de Bibliotecas, ,
 
 incluir <stdio.h>
 incluir <stdlib.h>
@@ -39,6 +39,8 @@ funcao_principal {
 	geraFuncao()
 
 	fatorial(fatorial(5 + 5))
+
+	imprima('%d ', valores[i])
 
 	// fim
 	retornar 0
