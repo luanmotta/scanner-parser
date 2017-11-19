@@ -57,6 +57,10 @@ funcao_principal {
 		//
 	}
 
+	caso (tamanho) {
+		//
+	}
+
 	faca {
 		//
 	} ate (i >= tamanho)

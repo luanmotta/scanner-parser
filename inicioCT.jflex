@@ -39,9 +39,11 @@ funcao           { return Parser.subrotina;        }
 ":="             { return Parser.atribuicao;       }
 
 retornar         { return Parser.retornar;         }
+
 se               { return Parser.se;               }
 senao            { return Parser.senao;            }
 enquanto         { return Parser.enquanto;         }
+caso             { return Parser.caso;             }
 para             { return Parser.para;             }
 faca             { return Parser.faca;             }
 ate              { return Parser.ate;              }

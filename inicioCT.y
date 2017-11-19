@@ -26,6 +26,7 @@
 %token retornar
 %token se
 %token senao
+%token caso
 %token enquanto
 %token para
 %token faca
@@ -68,6 +69,8 @@
 %type <sval> RETURN
 %type <sval> IF
 %type <sval> ELSE
+%type <sval> SWITCH
+%type <sval> SWITCH_ID
 %type <sval> WHILE
 %type <sval> DO
 %type <sval> UNTIL
@@ -162,8 +165,8 @@ COMANDO         : CONDICIONAL {$$=    $1    ;}
 								| RETURN      {$$=    $1    ;}
 
 
-CONDICIONAL     : IF   {$$=    $1    ;}
-
+CONDICIONAL     : IF       {$$=    $1    ;}
+                | SWITCH   {$$=    $1    ;}
 
 LACO            : WHILE {$$=    $1    ;}
                 | DO    {$$=    $1    ;}
@@ -178,6 +181,12 @@ IF              : se CONDICAO BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
 
 ELSE            : senao BLOCO {$$=   "else " + $2   ;}
                 |             {$$=   ""   ;}
+
+
+SWITCH          : caso SWITCH_ID BLOCO {$$=  "switch " + $2 + $3   ;}
+
+
+SWITCH_ID       : abre_parenteses identificador fecha_parenteses {$$=    "( " + $2 + " )"   ;}
 
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
