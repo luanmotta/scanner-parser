@@ -100,9 +100,9 @@ funcao_principal {
 
   /* A parte final é só para verificar o resultado */
   para (i :=0; i<tamanho; i++) {
-    imprima('%d ', valores[i])
-    imprima('%c ', funcoes[i])
-    imprima('%f\n', resultado[i])
+    imprima("%d ", valores[i])
+    imprima("%c ", funcoes[i])
+    imprima("%f\n", resultado[i])
   }
   retornar 0
 }

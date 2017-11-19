@@ -91,4 +91,9 @@ caracter         { return Parser.caracter;         }
 	return Parser.identificador;
 }
 
+imprima\(.*\) {
+	yyparser.yylval = new ParserVal(yytext());
+	return Parser.imprima;
+}
+
 {NL}|" "|\t	{  }

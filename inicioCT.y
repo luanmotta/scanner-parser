@@ -48,6 +48,7 @@
 %token <sval> comparador
 %token <sval> incdec
 %token <sval> identificador
+%token <sval> imprima
 
 
 
@@ -99,6 +100,7 @@
 %type <sval> VALOR
 %type <sval> ID_INCDEC
 %type <sval> TIPO
+%type <sval> IMPRIMIR
 
 
 
@@ -149,6 +151,7 @@ LINHA           : EXECUCAO    {$$=    $1     ;}
 EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
 								| CALL       {$$=    $1 + ";"   ;}
+								| IMPRIMIR   {$$=    $1 + ";"   ;}
 								| ID_INCDEC  {$$=    $1 + ";"   ;}
 								| COMANDO    {$$=    $1         ;}
 
@@ -288,7 +291,7 @@ TIPO            : inteiro   {$$=    "int "      ;}
 		            | caracter  {$$=    "char "     ;}
 
 
-
+IMPRIMIR        : imprima  {$$=   "scanf" + $1.substring(7, $1.length())   ;}
 
 
 
