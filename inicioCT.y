@@ -7,6 +7,7 @@
 /* BYACC Declarations */
 
 %token incluir
+%token definir
 
 %token main
 %token subrotina
@@ -54,6 +55,7 @@
 
 %type <sval> PROGRAMA
 %type <sval> INCLUSAO
+%type <sval> DEFINICAO
 %type <sval> MAIN
 %type <sval> SUBROTINA
 %type <sval> PARAM
@@ -113,6 +115,7 @@ INICIO          : PROGRAMA	 { System.out.println("\n\n\n" + $1); }
 
 
 PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
+                | DEFINICAO        PROGRAMA {$$=    $1 + "\n" + $2   ;}
 		            | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
 								| SUBROTINA        PROGRAMA {$$=    $1 + "\n" + $2   ;}
 								| comentario       PROGRAMA {$$=    $1 + "\n" + $2   ;}
@@ -120,6 +123,9 @@ PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
 
 
 INCLUSAO        : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
+
+
+DEFINICAO       : definir identificador valor_primitivo	{$$=    "#define " + $2 + " " + $3   ;}
 
 
 MAIN            : main BLOCO {$$=    "\nint main()" + $2   ;}

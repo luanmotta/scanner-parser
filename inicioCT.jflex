@@ -22,6 +22,7 @@ NL = \n | \r | \r\n
 %%
 
 incluir	         { return Parser.incluir;          }
+definir	         { return Parser.definir;          }
 
 funcao_principal { return Parser.main;             }
 funcao           { return Parser.subrotina;        }

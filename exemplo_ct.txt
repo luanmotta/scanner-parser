@@ -3,6 +3,8 @@
 incluir <stdio.h>
 incluir <math.h>
 
+definir tamanho 50
+
 // Funcao media que retorna um real
 
 funcao real media (inteiro a) {
