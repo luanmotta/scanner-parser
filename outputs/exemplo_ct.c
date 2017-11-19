@@ -118,9 +118,9 @@ while ( i >= tamanho );
 
 /* A parte final é só para verificar o resultado */
 for ( i = 0 ; i < tamanho ; i++ ) {
-scanf("%d ", valores[i]);
-scanf("%c ", funcoes[i]);
-scanf("%f\n", resultado[i]);
+printf("%d ", valores[i]);
+printf("%c ", funcoes[i]);
+printf("%f\n", resultado[i]);
 }
 
 return 0;

@@ -297,7 +297,7 @@ TIPO            : inteiro   {$$=    "int "      ;}
 		            | caracter  {$$=    "char "     ;}
 
 
-IMPRIMIR        : imprima  {$$=   "scanf" + $1.substring(7, $1.length())   ;}
+IMPRIMIR        : imprima  {$$=   "printf" + $1.substring(7, $1.length())   ;}
 
 
 

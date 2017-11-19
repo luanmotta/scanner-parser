@@ -16,7 +16,7 @@
 
 
 
-//#line 3 "inicioCT.y"
+//#line 3 "./src/CT.y"
 	import java.io.*;
 	import java.util.*;
 //#line 20 "Parser.java"
@@ -467,7 +467,7 @@ final static String yyrule[] = {
 "IMPRIMIR : imprima",
 };
 
-//#line 315 "inicioCT.y"
+//#line 315 "./src/CT.y"
 /* Início do Código em Java */
 
 	// Referencia ao JFlex
@@ -658,364 +658,364 @@ boolean doaction;
       {
 //########## USER-SUPPLIED ACTIONS ##########
 case 1:
-//#line 114 "inicioCT.y"
+//#line 114 "./src/CT.y"
 { System.out.println("\n\n\n" + val_peek(0).sval); }
 break;
 case 2:
-//#line 117 "inicioCT.y"
+//#line 117 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 3:
-//#line 118 "inicioCT.y"
+//#line 118 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 4:
-//#line 119 "inicioCT.y"
+//#line 119 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 5:
-//#line 120 "inicioCT.y"
+//#line 120 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 6:
-//#line 121 "inicioCT.y"
+//#line 121 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 7:
-//#line 122 "inicioCT.y"
+//#line 122 "./src/CT.y"
 {yyval.sval=    ""               ;}
 break;
 case 8:
-//#line 125 "inicioCT.y"
+//#line 125 "./src/CT.y"
 {yyval.sval=    "#include " + val_peek(0).sval   ;}
 break;
 case 9:
-//#line 128 "inicioCT.y"
+//#line 128 "./src/CT.y"
 {yyval.sval=    "#define " + val_peek(1).sval + " " + val_peek(0).sval   ;}
 break;
 case 10:
-//#line 131 "inicioCT.y"
+//#line 131 "./src/CT.y"
 {yyval.sval=    "\nint main()" + val_peek(0).sval   ;}
 break;
 case 11:
-//#line 134 "inicioCT.y"
+//#line 134 "./src/CT.y"
 {yyval.sval=   "\n" + val_peek(2).sval + " " + val_peek(1).sval + val_peek(0).sval    ;}
 break;
 case 12:
-//#line 137 "inicioCT.y"
+//#line 137 "./src/CT.y"
 {yyval.sval=   "(" + val_peek(1).sval + ")"    ;}
 break;
 case 13:
-//#line 140 "inicioCT.y"
+//#line 140 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval                 ;}
 break;
 case 14:
-//#line 141 "inicioCT.y"
+//#line 141 "./src/CT.y"
 {yyval.sval=    val_peek(2).sval + ", " + val_peek(0).sval     ;}
 break;
 case 15:
-//#line 142 "inicioCT.y"
+//#line 142 "./src/CT.y"
 {yyval.sval=    ""                 ;}
 break;
 case 16:
-//#line 145 "inicioCT.y"
+//#line 145 "./src/CT.y"
 {yyval.sval=    " {\n" + val_peek(1).sval + "}\n"   ;}
 break;
 case 17:
-//#line 148 "inicioCT.y"
+//#line 148 "./src/CT.y"
 {yyval.sval=   "" + val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 18:
-//#line 149 "inicioCT.y"
+//#line 149 "./src/CT.y"
 {yyval.sval=   "" + val_peek(0).sval + "\n"        ;}
 break;
 case 19:
-//#line 150 "inicioCT.y"
+//#line 150 "./src/CT.y"
 {yyval.sval=   ""                     ;}
 break;
 case 20:
-//#line 153 "inicioCT.y"
+//#line 153 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval     ;}
 break;
 case 21:
-//#line 154 "inicioCT.y"
+//#line 154 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval     ;}
 break;
 case 22:
-//#line 157 "inicioCT.y"
+//#line 157 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval + ";"   ;}
 break;
 case 23:
-//#line 158 "inicioCT.y"
+//#line 158 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval + ";"   ;}
 break;
 case 24:
-//#line 159 "inicioCT.y"
+//#line 159 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval + ";"   ;}
 break;
 case 25:
-//#line 160 "inicioCT.y"
+//#line 160 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval + ";"   ;}
 break;
 case 26:
-//#line 161 "inicioCT.y"
+//#line 161 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval + ";"   ;}
 break;
 case 27:
-//#line 162 "inicioCT.y"
+//#line 162 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval         ;}
 break;
 case 28:
-//#line 165 "inicioCT.y"
+//#line 165 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + val_peek(0).sval  ;}
 break;
 case 29:
-//#line 168 "inicioCT.y"
+//#line 168 "./src/CT.y"
 {yyval.sval=  val_peek(2).sval + " = " + val_peek(0).sval   ;}
 break;
 case 30:
-//#line 171 "inicioCT.y"
+//#line 171 "./src/CT.y"
 {yyval.sval=   val_peek(1).sval + val_peek(0).sval   ;}
 break;
 case 31:
-//#line 174 "inicioCT.y"
+//#line 174 "./src/CT.y"
 {yyval.sval=    "(" + val_peek(1).sval + ")"   ;}
 break;
 case 32:
-//#line 177 "inicioCT.y"
+//#line 177 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval                 ;}
 break;
 case 33:
-//#line 178 "inicioCT.y"
+//#line 178 "./src/CT.y"
 {yyval.sval=    val_peek(2).sval + ", " + val_peek(0).sval     ;}
 break;
 case 34:
-//#line 179 "inicioCT.y"
+//#line 179 "./src/CT.y"
 {yyval.sval=    ""                 ;}
 break;
 case 35:
-//#line 182 "inicioCT.y"
+//#line 182 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 36:
-//#line 183 "inicioCT.y"
+//#line 183 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 37:
-//#line 184 "inicioCT.y"
+//#line 184 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 38:
-//#line 187 "inicioCT.y"
+//#line 187 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 39:
-//#line 188 "inicioCT.y"
+//#line 188 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 40:
-//#line 190 "inicioCT.y"
+//#line 190 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 41:
-//#line 191 "inicioCT.y"
+//#line 191 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 42:
-//#line 192 "inicioCT.y"
+//#line 192 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 43:
-//#line 195 "inicioCT.y"
+//#line 195 "./src/CT.y"
 {yyval.sval=    "return " + val_peek(0).sval + ";"   ;}
 break;
 case 44:
-//#line 198 "inicioCT.y"
+//#line 198 "./src/CT.y"
 {yyval.sval=  "if " + val_peek(2).sval + val_peek(1).sval + val_peek(0).sval  ;}
 break;
 case 45:
-//#line 201 "inicioCT.y"
+//#line 201 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval        ;}
 break;
 case 46:
-//#line 202 "inicioCT.y"
+//#line 202 "./src/CT.y"
 {yyval.sval=   " " + val_peek(0).sval   ;}
 break;
 case 47:
-//#line 205 "inicioCT.y"
+//#line 205 "./src/CT.y"
 {yyval.sval=   "else " + val_peek(0).sval   ;}
 break;
 case 48:
-//#line 206 "inicioCT.y"
+//#line 206 "./src/CT.y"
 {yyval.sval=   ""             ;}
 break;
 case 49:
-//#line 209 "inicioCT.y"
+//#line 209 "./src/CT.y"
 {yyval.sval=  "switch " + val_peek(1).sval + val_peek(0).sval   ;}
 break;
 case 50:
-//#line 212 "inicioCT.y"
+//#line 212 "./src/CT.y"
 {yyval.sval=    "( " + val_peek(1).sval + " )"   ;}
 break;
 case 51:
-//#line 215 "inicioCT.y"
+//#line 215 "./src/CT.y"
 {yyval.sval=    " {\n" + val_peek(1).sval + "}\n"   ;}
 break;
 case 52:
-//#line 218 "inicioCT.y"
+//#line 218 "./src/CT.y"
 {yyval.sval=   "" + val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 53:
-//#line 219 "inicioCT.y"
+//#line 219 "./src/CT.y"
 {yyval.sval=   "" + val_peek(0).sval + "\n"        ;}
 break;
 case 54:
-//#line 222 "inicioCT.y"
+//#line 222 "./src/CT.y"
 {yyval.sval=   "case " + val_peek(2).sval + ":\n" + val_peek(0).sval   ;}
 break;
 case 55:
-//#line 223 "inicioCT.y"
+//#line 223 "./src/CT.y"
 {yyval.sval=   "case " + val_peek(1).sval + ":\n"        ;}
 break;
 case 56:
-//#line 226 "inicioCT.y"
+//#line 226 "./src/CT.y"
 {yyval.sval=   val_peek(0).sval   ;}
 break;
 case 57:
-//#line 227 "inicioCT.y"
+//#line 227 "./src/CT.y"
 {yyval.sval=   val_peek(0).sval   ;}
 break;
 case 58:
-//#line 230 "inicioCT.y"
+//#line 230 "./src/CT.y"
 {yyval.sval=    "{\n" + val_peek(0).sval + "}\n"   ;}
 break;
 case 59:
-//#line 233 "inicioCT.y"
+//#line 233 "./src/CT.y"
 {yyval.sval=   val_peek(1).sval + "\n" + val_peek(0).sval   ;}
 break;
 case 60:
-//#line 234 "inicioCT.y"
+//#line 234 "./src/CT.y"
 {yyval.sval=   "break;\n"         ;}
 break;
 case 61:
-//#line 236 "inicioCT.y"
+//#line 236 "./src/CT.y"
 {yyval.sval=  "while " + val_peek(1).sval + val_peek(0).sval   ;}
 break;
 case 62:
-//#line 239 "inicioCT.y"
+//#line 239 "./src/CT.y"
 {yyval.sval=   "do " + val_peek(1).sval + val_peek(0).sval  ;}
 break;
 case 63:
-//#line 242 "inicioCT.y"
+//#line 242 "./src/CT.y"
 {yyval.sval=   "while " + val_peek(0).sval + ";\n"  ;}
 break;
 case 64:
-//#line 245 "inicioCT.y"
+//#line 245 "./src/CT.y"
 {yyval.sval=  "for " + val_peek(1).sval + val_peek(0).sval   ;}
 break;
 case 65:
-//#line 248 "inicioCT.y"
+//#line 248 "./src/CT.y"
 {yyval.sval=    "( " + val_peek(1).sval + " )"   ;}
 break;
 case 66:
-//#line 251 "inicioCT.y"
+//#line 251 "./src/CT.y"
 {yyval.sval= val_peek(4).sval + " ; " + val_peek(2).sval + " ; " + val_peek(0).sval  ;}
 break;
 case 67:
-//#line 254 "inicioCT.y"
+//#line 254 "./src/CT.y"
 {yyval.sval=   val_peek(0).sval   ;}
 break;
 case 68:
-//#line 255 "inicioCT.y"
+//#line 255 "./src/CT.y"
 {yyval.sval=   ""   ;}
 break;
 case 69:
-//#line 258 "inicioCT.y"
+//#line 258 "./src/CT.y"
 {yyval.sval=   val_peek(0).sval   ;}
 break;
 case 70:
-//#line 259 "inicioCT.y"
+//#line 259 "./src/CT.y"
 {yyval.sval=   ""   ;}
 break;
 case 71:
-//#line 262 "inicioCT.y"
+//#line 262 "./src/CT.y"
 {yyval.sval=   val_peek(0).sval   ;}
 break;
 case 72:
-//#line 263 "inicioCT.y"
+//#line 263 "./src/CT.y"
 {yyval.sval=   ""   ;}
 break;
 case 73:
-//#line 266 "inicioCT.y"
+//#line 266 "./src/CT.y"
 {yyval.sval=    "( " + val_peek(1).sval + " )"   ;}
 break;
 case 74:
-//#line 269 "inicioCT.y"
+//#line 269 "./src/CT.y"
 {yyval.sval=  val_peek(2).sval + " " + val_peek(1).sval + " " + val_peek(0).sval   ;}
 break;
 case 75:
-//#line 272 "inicioCT.y"
+//#line 272 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval              ;}
 break;
 case 76:
-//#line 273 "inicioCT.y"
+//#line 273 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval              ;}
 break;
 case 77:
-//#line 274 "inicioCT.y"
+//#line 274 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + val_peek(0).sval         ;}
 break;
 case 78:
-//#line 277 "inicioCT.y"
+//#line 277 "./src/CT.y"
 {yyval.sval=    "(" + val_peek(1).sval + ")" ;}
 break;
 case 79:
-//#line 280 "inicioCT.y"
+//#line 280 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + val_peek(0).sval    ;}
 break;
 case 80:
-//#line 283 "inicioCT.y"
+//#line 283 "./src/CT.y"
 {yyval.sval=    " " + val_peek(1).sval + " " + val_peek(0).sval    ;}
 break;
 case 81:
-//#line 284 "inicioCT.y"
+//#line 284 "./src/CT.y"
 {yyval.sval=        ""                 ;}
 break;
 case 82:
-//#line 286 "inicioCT.y"
+//#line 286 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 83:
-//#line 287 "inicioCT.y"
+//#line 287 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 84:
-//#line 288 "inicioCT.y"
+//#line 288 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 85:
-//#line 289 "inicioCT.y"
+//#line 289 "./src/CT.y"
 {yyval.sval=    val_peek(0).sval    ;}
 break;
 case 86:
-//#line 292 "inicioCT.y"
+//#line 292 "./src/CT.y"
 {yyval.sval=    val_peek(1).sval + val_peek(0).sval   ;}
 break;
 case 87:
-//#line 295 "inicioCT.y"
+//#line 295 "./src/CT.y"
 {yyval.sval=    "int "      ;}
 break;
 case 88:
-//#line 296 "inicioCT.y"
+//#line 296 "./src/CT.y"
 {yyval.sval=    "double "   ;}
 break;
 case 89:
-//#line 297 "inicioCT.y"
+//#line 297 "./src/CT.y"
 {yyval.sval=    "char "     ;}
 break;
 case 90:
-//#line 300 "inicioCT.y"
-{yyval.sval=   "scanf" + val_peek(0).sval.substring(7, val_peek(0).sval.length())   ;}
+//#line 300 "./src/CT.y"
+{yyval.sval=   "printf" + val_peek(0).sval.substring(7, val_peek(0).sval.length())   ;}
 break;
 //#line 944 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
