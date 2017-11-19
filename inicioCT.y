@@ -12,6 +12,7 @@
 %token subrotina
 
 %token virgula
+%token ponto_e_virgula
 
 %token abre_chaves
 %token fecha_chaves
@@ -26,6 +27,7 @@
 %token se
 %token senao
 %token enquanto
+%token para
 
 %token inteiro
 %token real
@@ -65,6 +67,9 @@
 %type <sval> IF
 %type <sval> ELSE
 %type <sval> WHILE
+%type <sval> FOR
+%type <sval> FOR_PARENTESES
+%type <sval> FOR_COMPOSICAO
 %type <sval> CONDICAO
 %type <sval> COMPARACAO
 %type <sval> EXPRESSAO
@@ -73,7 +78,6 @@
 %type <sval> OPERACAO
 %type <sval> VALOR
 %type <sval> ID_INCDEC
-%type <sval> INCDEC
 %type <sval> TIPO
 
 
@@ -115,6 +119,7 @@ BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n" 
 
 CONTEUDO        : LINHA CONTEUDO {$$=   "  " + $1 + "\n" + $2   ;}
                 | LINHA          {$$=   "  " + $1 + "\n"        ;}
+								|                {$$=   ""                      ;}
 
 
 LINHA           : EXECUCAO    {$$=    $1     ;}
@@ -154,6 +159,7 @@ CONDICIONAL     : IF   {$$=    $1    ;}
 
 
 LACO            : WHILE {$$=    $1    ;}
+                | FOR   {$$=    $1    ;}
 
 
 RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
@@ -167,6 +173,15 @@ ELSE            : senao BLOCO {$$=   "else " + $2   ;}
 
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
+
+
+FOR             : para FOR_PARENTESES BLOCO {$$=  "for " + $2 + $3   ;}
+
+
+FOR_PARENTESES  : abre_parenteses FOR_COMPOSICAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
+
+
+FOR_COMPOSICAO  : ponto_e_virgula ponto_e_virgula {$$=  ";" + ";"   ;}
 
 
 CONDICAO        : abre_parenteses COMPARACAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}

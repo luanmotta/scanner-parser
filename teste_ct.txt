@@ -57,6 +57,13 @@ funcao_principal {
     i++
   }
 
+	para (;;) {
+    se (a%i == 0) {
+      quantidade++
+      soma := soma + i
+    }
+  }
+
 	geraFuncao()
 
 	fatorial(fatorial(5 + 5))

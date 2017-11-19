@@ -27,6 +27,7 @@ funcao_principal { return Parser.main;             }
 funcao           { return Parser.subrotina;        }
 
 ","	             { return Parser.virgula;          }
+";"	             { return Parser.ponto_e_virgula;  }
 
 "{"	             { return Parser.abre_chaves;      }
 "}"              { return Parser.fecha_chaves;     }
@@ -41,6 +42,7 @@ retornar         { return Parser.retornar;         }
 se               { return Parser.se;               }
 senao            { return Parser.senao;            }
 enquanto         { return Parser.enquanto;         }
+para             { return Parser.para;             }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }
