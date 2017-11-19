@@ -30,9 +30,15 @@ funcao_principal {
 
 	teste2 := (55 * teste1) + 15
 
+	teste2 := (55 * teste1) + fatorial(2)
+
 	se (55 >= 55) {
 		teste2 := (55 * teste1) + 15
 	}
+
+	geraFuncao()
+
+	fatorial(fatorial(5 + 5))
 
 	// fim
 	retornar 0

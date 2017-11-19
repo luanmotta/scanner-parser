@@ -50,6 +50,9 @@
 %type <sval> EXECUCAO
 %type <sval> DECLARACAO
 %type <sval> ATRIBUICAO
+%type <sval> CALL
+%type <sval> CALL_PARAM
+%type <sval> CALL_PARAMS
 %type <sval> COMANDO
 %type <sval> CONDICIONAL
 %type <sval> LACO
@@ -110,6 +113,7 @@ LINHA           : EXECUCAO    {$$=    $1     ;}
 
 EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
+								| CALL       {$$=    $1 + ";"   ;}
 								| COMANDO    {$$=    $1         ;}
 
 
@@ -117,6 +121,16 @@ DECLARACAO      : TIPO identificador {$$=    $1 + $2  ;}
 
 
 ATRIBUICAO      : identificador atribuicao EXPRESSAO {$$=  $1 + " = " + $3   ;}
+
+
+CALL            : identificador CALL_PARAM  {$$=   $1 + $2   ;}
+
+
+CALL_PARAM      : abre_parenteses CALL_PARAMS fecha_parenteses  {$$=    "(" + $2 + ")"   ;}
+
+
+CALL_PARAMS     : EXPRESSAO  {$$=    $1     ;}
+                |            {$$=    ""     ;}
 
 
 COMANDO         : CONDICIONAL {$$=    $1    ;}
@@ -158,6 +172,7 @@ OPERACAO        : operador EXPRESSAO {$$=    " " + $1 + " " + $2    ;}
 
 VALOR           : valor_primitivo {$$=    $1    ;}
                 | identificador   {$$=    $1    ;}
+								| CALL            {$$=    $1    ;}
 
 
 TIPO            : inteiro   {$$=    "int "      ;}
