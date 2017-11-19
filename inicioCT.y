@@ -13,6 +13,7 @@
 
 %token virgula
 %token ponto_e_virgula
+%token dois_pontos
 
 %token abre_chaves
 %token fecha_chaves
@@ -27,6 +28,7 @@
 %token se
 %token senao
 %token caso
+%token opcao
 %token enquanto
 %token para
 %token faca
@@ -71,6 +73,9 @@
 %type <sval> ELSE
 %type <sval> SWITCH
 %type <sval> SWITCH_ID
+%type <sval> SWITCH_BLOCO
+%type <sval> SWITCH_OPCOES
+%type <sval> SWITCH_OPCAO
 %type <sval> WHILE
 %type <sval> DO
 %type <sval> UNTIL
@@ -129,7 +134,7 @@ BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n" 
 
 CONTEUDO        : LINHA CONTEUDO {$$=   "" + $1 + "\n" + $2   ;}
                 | LINHA          {$$=   "" + $1 + "\n"        ;}
-								|                {$$=   ""                      ;}
+								|                {$$=   ""                     ;}
 
 
 LINHA           : EXECUCAO    {$$=    $1     ;}
@@ -180,13 +185,23 @@ IF              : se CONDICAO BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
 
 
 ELSE            : senao BLOCO {$$=   "else " + $2   ;}
-                |             {$$=   ""   ;}
+                |             {$$=   ""             ;}
 
 
-SWITCH          : caso SWITCH_ID BLOCO {$$=  "switch " + $2 + $3   ;}
+SWITCH          : caso SWITCH_ID SWITCH_BLOCO {$$=  "switch " + $2 + $3   ;}
 
 
 SWITCH_ID       : abre_parenteses identificador fecha_parenteses {$$=    "( " + $2 + " )"   ;}
+
+
+SWITCH_BLOCO    : abre_chaves SWITCH_OPCOES fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}
+
+
+SWITCH_OPCOES   : SWITCH_OPCAO SWITCH_OPCOES {$$=   "" + $1 + "\n" + $2   ;}
+                | SWITCH_OPCAO               {$$=   "" + $1 + "\n"        ;}
+
+
+SWITCH_OPCAO    : opcao valor_primitivo dois_pontos {$$=   "case " + $2 + ":\n"   ;}
 
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}

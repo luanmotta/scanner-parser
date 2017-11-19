@@ -94,8 +94,8 @@ funcao_principal {
       opcao 'f':
         resultado[i]:=fatorial(valores[i])
         fim_opcao
-      }
-      i++
+    }
+    i++
   } ate (i >= tamanho)
 
   /* A parte final é só para verificar o resultado */
