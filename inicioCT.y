@@ -70,6 +70,7 @@
 %type <sval> ELSE
 %type <sval> WHILE
 %type <sval> DO
+%type <sval> UNTIL
 %type <sval> FOR
 %type <sval> FOR_PARENTESES
 %type <sval> FOR_COMPOSICAO
@@ -123,8 +124,8 @@ PARAMS          : DECLARACAO                     {$$=    $1                 ;}
 BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}
 
 
-CONTEUDO        : LINHA CONTEUDO {$$=   "  " + $1 + "\n" + $2   ;}
-                | LINHA          {$$=   "  " + $1 + "\n"        ;}
+CONTEUDO        : LINHA CONTEUDO {$$=   "" + $1 + "\n" + $2   ;}
+                | LINHA          {$$=   "" + $1 + "\n"        ;}
 								|                {$$=   ""                      ;}
 
 
@@ -182,7 +183,10 @@ ELSE            : senao BLOCO {$$=   "else " + $2   ;}
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
 
 
-DO              : faca BLOCO {$$=   "do " + $2   ;}
+DO              : faca BLOCO UNTIL {$$=   "do " + $2 + $3  ;}
+
+
+UNTIL           : ate CONDICAO {$$=   "while " + $2 + ";\n"  ;}
 
 
 FOR             : para FOR_PARENTESES BLOCO {$$=  "for " + $2 + $3   ;}
