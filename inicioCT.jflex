@@ -46,6 +46,7 @@ senao            { return Parser.senao;            }
 enquanto         { return Parser.enquanto;         }
 caso             { return Parser.caso;             }
 opcao            { return Parser.opcao;            }
+fim_opcao        { return Parser.fim_opcao;        }
 para             { return Parser.para;             }
 faca             { return Parser.faca;             }
 ate              { return Parser.ate;              }

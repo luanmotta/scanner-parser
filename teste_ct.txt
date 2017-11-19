@@ -57,10 +57,6 @@ funcao_principal {
 		//
 	}
 
-	caso (tamanho) {
-		opcao 'm':
-	}
-
 	faca {
 		//
 	} ate (i >= tamanho)
@@ -77,6 +73,18 @@ funcao_principal {
       soma := soma + i
     }
   }
+
+	caso (funcoes[i]) {
+		opcao 'm':
+			resultado[i]:=media(valores[i])
+			fim_opcao
+		opcao 's':
+			resultado[i]:=soma(valores[i])
+			fim_opcao
+		opcao 'f':
+			resultado[i]:=fatorial(valores[i])
+			fim_opcao
+	}
 
 	geraFuncao()
 

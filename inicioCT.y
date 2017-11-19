@@ -29,6 +29,7 @@
 %token senao
 %token caso
 %token opcao
+%token fim_opcao
 %token enquanto
 %token para
 %token faca
@@ -76,6 +77,8 @@
 %type <sval> SWITCH_BLOCO
 %type <sval> SWITCH_OPCOES
 %type <sval> SWITCH_OPCAO
+%type <sval> OPCAO_VALOR
+%type <sval> OPCAO_BLOCO
 %type <sval> WHILE
 %type <sval> DO
 %type <sval> UNTIL
@@ -201,7 +204,16 @@ SWITCH_OPCOES   : SWITCH_OPCAO SWITCH_OPCOES {$$=   "" + $1 + "\n" + $2   ;}
                 | SWITCH_OPCAO               {$$=   "" + $1 + "\n"        ;}
 
 
-SWITCH_OPCAO    : opcao valor_primitivo dois_pontos {$$=   "case " + $2 + ":\n"   ;}
+SWITCH_OPCAO    : opcao OPCAO_VALOR dois_pontos OPCAO_BLOCO {$$=   "case " + $2 + ":\n" + $4   ;}
+                | opcao OPCAO_VALOR dois_pontos             {$$=   "case " + $2 + ":\n"        ;}
+
+
+OPCAO_VALOR     : identificador   {$$=   $1   ;}
+                | valor_primitivo {$$=   $1   ;}
+
+
+OPCAO_BLOCO     : LINHA OPCAO_BLOCO  {$$=   $1 + "\n" + $2   ;}
+                | fim_opcao          {$$=   "break;"         ;}
 
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
