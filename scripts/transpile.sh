@@ -17,4 +17,3 @@ javac *.java
 
 # Execute Parser in input file and generates output c file
 java Parser ./inputs/$1.txt > ./outputs/$1.c
-
