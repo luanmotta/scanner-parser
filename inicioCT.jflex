@@ -71,6 +71,11 @@ caracter         { return Parser.caracter;         }
 	return Parser.comparador;
 }
 
+\+\+|--	{
+	yyparser.yylval = new ParserVal(yytext());
+	return Parser.incdec;
+}
+
 [a-zA-Z_][_a-zA-Z0-9\[\]]*	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;

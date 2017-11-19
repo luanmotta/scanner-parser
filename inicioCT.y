@@ -37,6 +37,7 @@
 %token <sval> comentario
 %token <sval> operador
 %token <sval> comparador
+%token <sval> incdec
 %token <sval> identificador
 
 
@@ -69,6 +70,8 @@
 %type <sval> EXP
 %type <sval> OPERACAO
 %type <sval> VALOR
+%type <sval> ID_INCDEC
+%type <sval> INCDEC
 %type <sval> TIPO
 
 
@@ -119,6 +122,7 @@ LINHA           : EXECUCAO    {$$=    $1     ;}
 EXECUCAO        : DECLARACAO {$$=    $1 + ";"   ;}
 					      | ATRIBUICAO {$$=    $1 + ";"   ;}
 								| CALL       {$$=    $1 + ";"   ;}
+								| ID_INCDEC  {$$=    $1 + ";"   ;}
 								| COMANDO    {$$=    $1         ;}
 
 
@@ -180,9 +184,13 @@ EXP             : VALOR OPERACAO   {$$=    $1 + $2    ;}
 OPERACAO        : operador EXPRESSAO {$$=    " " + $1 + " " + $2    ;}
                 |                    {$$=        ""                 ;}
 
-VALOR           : valor_primitivo {$$=    $1    ;}
-                | identificador   {$$=    $1    ;}
-								| CALL            {$$=    $1    ;}
+VALOR           : valor_primitivo    {$$=    $1    ;}
+                | identificador      {$$=    $1    ;}
+                | ID_INCDEC          {$$=    $1    ;}
+								| CALL               {$$=    $1    ;}
+
+
+ID_INCDEC       : identificador incdec {$$=    $1 + $2   ;}
 
 
 TIPO            : inteiro   {$$=    "int "      ;}
