@@ -40,6 +40,7 @@ funcao           { return Parser.subrotina;        }
 retornar         { return Parser.retornar;         }
 se               { return Parser.se;               }
 senao            { return Parser.senao;            }
+enquanto         { return Parser.enquanto;         }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }

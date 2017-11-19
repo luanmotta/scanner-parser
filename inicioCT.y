@@ -25,6 +25,7 @@
 %token retornar
 %token se
 %token senao
+%token enquanto
 
 %token inteiro
 %token real
@@ -63,6 +64,7 @@
 %type <sval> RETURN
 %type <sval> IF
 %type <sval> ELSE
+%type <sval> WHILE
 %type <sval> CONDICAO
 %type <sval> COMPARACAO
 %type <sval> EXPRESSAO
@@ -151,7 +153,7 @@ COMANDO         : CONDICIONAL {$$=    $1    ;}
 CONDICIONAL     : IF   {$$=    $1    ;}
 
 
-LACO            : TIPO   {$$=    $1    ;}
+LACO            : WHILE {$$=    $1    ;}
 
 
 RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
@@ -162,6 +164,9 @@ IF              : se CONDICAO BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
 
 ELSE            : senao BLOCO {$$=   "else " + $2   ;}
                 |             {$$=   ""   ;}
+
+
+WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
 
 
 CONDICAO        : abre_parenteses COMPARACAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
