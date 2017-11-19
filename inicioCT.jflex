@@ -39,6 +39,7 @@ funcao           { return Parser.subrotina;        }
 
 retornar         { return Parser.retornar;         }
 se               { return Parser.se;               }
+senao            { return Parser.senao;            }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }

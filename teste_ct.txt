@@ -4,7 +4,17 @@ incluir <stdio.h>
 incluir <stdlib.h>
 
 funcao caracter geraFuncao () {
-	//
+  inteiro valor
+  valor := rand()%10
+  se (valor<=3) {
+    retornar 'm'
+  } senao {
+    se (valor<=6) {
+      retornar 's'
+    } senao {
+      retornar 'f'
+    }
+  }
 }
 
 funcao inteiro fatorial (inteiro a) {
@@ -32,8 +42,11 @@ funcao_principal {
 
 	teste2 := (55 * teste1) + fatorial(2)
 
-	se (55 >= 55) {
+	se (a%i == 0) {
 		teste2 := (55 * teste1) + 15
+		fatorial(fatorial(5 + 5))
+	} senao {
+		//
 	}
 
 	geraFuncao()

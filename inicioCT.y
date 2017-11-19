@@ -24,6 +24,7 @@
 
 %token retornar
 %token se
+%token senao
 
 %token inteiro
 %token real
@@ -60,6 +61,7 @@
 %type <sval> LACO
 %type <sval> RETURN
 %type <sval> IF
+%type <sval> ELSE
 %type <sval> CONDICAO
 %type <sval> COMPARACAO
 %type <sval> EXPRESSAO
@@ -151,13 +153,17 @@ LACO            : TIPO   {$$=    $1    ;}
 RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
 
 
-IF              : se CONDICAO BLOCO  {$$=  "if " + $2 + $3   ;}
+IF              : se CONDICAO BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
+
+
+ELSE            : senao BLOCO {$$=   "else " + $2   ;}
+                |             {$$=   ""   ;}
 
 
 CONDICAO        : abre_parenteses COMPARACAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
 
 
-COMPARACAO      : VALOR comparador VALOR {$$=  $1 + " " + $2 + " " + $3   ;}
+COMPARACAO      : EXP comparador EXP  {$$=  $1 + " " + $2 + " " + $3   ;}
 
 
 EXPRESSAO       : EXP                      {$$=    $1              ;}

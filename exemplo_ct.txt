@@ -58,7 +58,7 @@ funcao caracter geraFuncao () {
     se (valor<=6) {
       retornar 's'
     } senao {
-      retrnar 'f'
+      retornar 'f'
     }
   }
 }
