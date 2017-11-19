@@ -28,6 +28,8 @@
 %token senao
 %token enquanto
 %token para
+%token faca
+%token ate
 
 %token inteiro
 %token real
@@ -67,6 +69,7 @@
 %type <sval> IF
 %type <sval> ELSE
 %type <sval> WHILE
+%type <sval> DO
 %type <sval> FOR
 %type <sval> FOR_PARENTESES
 %type <sval> FOR_COMPOSICAO
@@ -162,6 +165,7 @@ CONDICIONAL     : IF   {$$=    $1    ;}
 
 
 LACO            : WHILE {$$=    $1    ;}
+                | DO    {$$=    $1    ;}
                 | FOR   {$$=    $1    ;}
 
 
@@ -176,6 +180,9 @@ ELSE            : senao BLOCO {$$=   "else " + $2   ;}
 
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
+
+
+DO              : faca BLOCO {$$=   "do " + $2   ;}
 
 
 FOR             : para FOR_PARENTESES BLOCO {$$=  "for " + $2 + $3   ;}

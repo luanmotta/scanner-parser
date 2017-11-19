@@ -43,6 +43,8 @@ se               { return Parser.se;               }
 senao            { return Parser.senao;            }
 enquanto         { return Parser.enquanto;         }
 para             { return Parser.para;             }
+faca             { return Parser.faca;             }
+ate              { return Parser.ate;              }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }

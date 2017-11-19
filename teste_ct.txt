@@ -57,6 +57,10 @@ funcao_principal {
 		//
 	}
 
+	faca {
+		//
+	}
+
 	enquanto (i < tamanho) {
     funcoes[i]:=geraFuncao()
     valores[i]:=geraValores()
