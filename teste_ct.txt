@@ -1,35 +1,6 @@
-// Inclusao de Bibliotecas, ,
+funcao inteiro testaParser (inteiro a) {
+  // Comentario para testar parser - , , . --
 
-incluir <stdio.h>
-incluir <stdlib.h>
-
-funcao caracter geraFuncao () {
-  inteiro valor
-  valor := rand()%10
-  se (valor<=3) {
-    retornar 'm'
-  } senao {
-    se (valor<=6) {
-      retornar 's'
-    } senao {
-      retornar 'f'
-    }
-  }
-}
-
-funcao inteiro fatorial (inteiro a) {
-  inteiro i
-  inteiro fat
-
-  fat := 1
-  para (i:=1;i<=a;i++) {
-    fat:=fat*i
-  }
-  retornar fat
-}
-
-/* Funcao principal */
-funcao_principal {
 	real teste1
 	inteiro teste2
 	caracter teste3[tamanho]

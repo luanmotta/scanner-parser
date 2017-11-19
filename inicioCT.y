@@ -71,6 +71,7 @@
 %type <sval> LACO
 %type <sval> RETURN
 %type <sval> IF
+%type <sval> CAN_BLOCO
 %type <sval> ELSE
 %type <sval> SWITCH
 %type <sval> SWITCH_ID
@@ -79,6 +80,7 @@
 %type <sval> SWITCH_OPCAO
 %type <sval> OPCAO_VALOR
 %type <sval> OPCAO_BLOCO
+%type <sval> OPCAO_CONTEUDO
 %type <sval> WHILE
 %type <sval> DO
 %type <sval> UNTIL
@@ -184,7 +186,11 @@ LACO            : WHILE {$$=    $1    ;}
 RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
 
 
-IF              : se CONDICAO BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
+IF              : se CONDICAO CAN_BLOCO ELSE  {$$=  "if " + $2 + $3 + $4  ;}
+
+
+CAN_BLOCO       : BLOCO    {$$=    $1        ;}
+                | EXECUCAO {$$=   " " + $1   ;}
 
 
 ELSE            : senao BLOCO {$$=   "else " + $2   ;}
@@ -212,9 +218,11 @@ OPCAO_VALOR     : identificador   {$$=   $1   ;}
                 | valor_primitivo {$$=   $1   ;}
 
 
-OPCAO_BLOCO     : LINHA OPCAO_BLOCO  {$$=   $1 + "\n" + $2   ;}
-                | fim_opcao          {$$=   "break;"         ;}
+OPCAO_BLOCO     : OPCAO_CONTEUDO {$$=    "{\n" + $1 + "}\n"   ;}
 
+
+OPCAO_CONTEUDO  : LINHA OPCAO_CONTEUDO  {$$=   $1 + "\n" + $2   ;}
+                | fim_opcao             {$$=   "break;\n"         ;}
 
 WHILE           : enquanto CONDICAO BLOCO {$$=  "while " + $2 + $3   ;}
 
