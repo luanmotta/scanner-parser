@@ -3,6 +3,14 @@
 incluir <stdio.h>
 incluir <stdlib.h>
 
+funcao caracter geraFuncao () {
+	//
+}
+
+funcao inteiro fatorial (inteiro a) {
+  //
+}
+
 
 /* Funcao principal */
 funcao_principal {

@@ -55,8 +55,8 @@ class Yylex {
     "\1\0\2\1\5\2\1\3\1\4\1\5\1\6\1\7"+
     "\1\10\2\0\1\2\2\11\1\12\1\0\2\13\4\2"+
     "\1\14\1\11\1\15\1\0\1\11\1\16\1\12\1\17"+
-    "\1\0\6\2\1\0\3\2\1\20\2\2\1\17\12\2"+
-    "\1\21\1\22\3\2\1\23\1\24\10\2\1\25";
+    "\1\0\6\2\1\0\3\2\1\20\2\2\1\17\11\2"+
+    "\1\21\1\22\1\23\3\2\1\24\1\25\10\2\1\26";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[76];
@@ -655,93 +655,97 @@ class Yylex {
           case 1: 
             { 
             }
-          case 22: break;
+          case 23: break;
           case 2: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;
             }
-          case 23: break;
+          case 24: break;
           case 3: 
             { return Parser.abre_chaves;
             }
-          case 24: break;
+          case 25: break;
           case 4: 
             { return Parser.fecha_chaves;
             }
-          case 25: break;
+          case 26: break;
           case 5: 
             { return Parser.abre_colchetes;
             }
-          case 26: break;
+          case 27: break;
           case 6: 
             { return Parser.fecha_colchetes;
             }
-          case 27: break;
+          case 28: break;
           case 7: 
             { return Parser.abre_parenteses;
             }
-          case 28: break;
+          case 29: break;
           case 8: 
             { return Parser.fecha_parenteses;
             }
-          case 29: break;
+          case 30: break;
           case 9: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.comparador;
             }
-          case 30: break;
+          case 31: break;
           case 10: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.valor_primitivo;
             }
-          case 31: break;
+          case 32: break;
           case 11: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.operador;
             }
-          case 32: break;
+          case 33: break;
           case 12: 
             { return Parser.atribuicao;
             }
-          case 33: break;
+          case 34: break;
           case 13: 
             { return Parser.se;
             }
-          case 34: break;
+          case 35: break;
           case 14: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.inclusao_arquivo;
             }
-          case 35: break;
+          case 36: break;
           case 15: 
             { yyparser.yylval = new ParserVal(yytext());
 	return Parser.comentario;
             }
-          case 36: break;
+          case 37: break;
           case 16: 
             { return Parser.real;
             }
-          case 37: break;
-          case 17: 
-            { return Parser.incluir;
-            }
           case 38: break;
-          case 18: 
-            { return Parser.inteiro;
+          case 17: 
+            { return Parser.subrotina;
             }
           case 39: break;
-          case 19: 
-            { return Parser.caracter;
+          case 18: 
+            { return Parser.incluir;
             }
           case 40: break;
-          case 20: 
-            { return Parser.retornar;
+          case 19: 
+            { return Parser.inteiro;
             }
           case 41: break;
-          case 21: 
-            { return Parser.main;
+          case 20: 
+            { return Parser.caracter;
             }
           case 42: break;
+          case 21: 
+            { return Parser.retornar;
+            }
+          case 43: break;
+          case 22: 
+            { return Parser.main;
+            }
+          case 44: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

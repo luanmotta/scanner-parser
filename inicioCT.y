@@ -9,6 +9,7 @@
 %token incluir
 
 %token main
+%token subrotina
 
 %token abre_chaves
 %token fecha_chaves
@@ -40,6 +41,9 @@
 %type <sval> PROGRAMA
 %type <sval> INCLUSAO
 %type <sval> MAIN
+%type <sval> SUBROTINA
+%type <sval> PARAM
+%type <sval> PARAMS
 %type <sval> BLOCO
 %type <sval> CONTEUDO
 %type <sval> LINHA
@@ -72,6 +76,7 @@ INICIO          : PROGRAMA	 { System.out.println("\n\n\n" + $1); }
 
 PROGRAMA        : INCLUSAO         PROGRAMA {$$=    $1 + "\n" + $2   ;}
 		            | MAIN             PROGRAMA {$$=    $1 + "\n" + $2   ;}
+								| SUBROTINA        PROGRAMA {$$=    $1 + "\n" + $2   ;}
 								| comentario       PROGRAMA {$$=    $1 + "\n" + $2   ;}
 	              |					                  {$$=    ""               ;}
 
@@ -80,6 +85,16 @@ INCLUSAO        : incluir inclusao_arquivo	{$$=    "#include " + $2   ;}
 
 
 MAIN            : main BLOCO {$$=    "\nint main()" + $2   ;}
+
+
+SUBROTINA       : subrotina DECLARACAO PARAM BLOCO {$$=   "\n" + $2 + " " + $3 + $4    ;}
+
+
+PARAM           : abre_parenteses PARAMS fecha_parenteses {$$=   "(" + $2 + ")"    ;}
+
+
+PARAMS          : DECLARACAO {$$=    $1     ;}
+                |            {$$=    ""     ;}
 
 
 BLOCO           : abre_chaves CONTEUDO fecha_chaves {$$=    " {\n" + $2 + "}\n"   ;}

@@ -24,6 +24,7 @@ NL = \n | \r | \r\n
 incluir	         { return Parser.incluir;          }
 
 funcao_principal { return Parser.main;             }
+funcao           { return Parser.subrotina;        }
 
 "{"	             { return Parser.abre_chaves;      }
 "}"              { return Parser.fecha_chaves;     }
