@@ -20,6 +20,7 @@
 %token atribuicao
 
 %token retornar
+%token se
 
 %token inteiro
 %token real
@@ -29,9 +30,10 @@
 
 %token <sval> inclusao_arquivo
 %token <sval> valor_primitivo
-%token <sval> identificador
 %token <sval> comentario
 %token <sval> operador
+%token <sval> comparador
+%token <sval> identificador
 
 
 
@@ -48,6 +50,9 @@
 %type <sval> CONDICIONAL
 %type <sval> LACO
 %type <sval> RETURN
+%type <sval> IF
+%type <sval> CONDICAO
+%type <sval> COMPARACAO
 %type <sval> EXPRESSAO
 %type <sval> PARENTESES_EXP
 %type <sval> EXP
@@ -104,13 +109,22 @@ COMANDO         : CONDICIONAL {$$=    $1    ;}
 								| RETURN      {$$=    $1    ;}
 
 
-CONDICIONAL     : TIPO   {$$=    $1    ;}
+CONDICIONAL     : IF   {$$=    $1    ;}
 
 
 LACO            : TIPO   {$$=    $1    ;}
 
 
 RETURN          : retornar EXPRESSAO   {$$=    "return " + $2 + ";"   ;}
+
+
+IF              : se CONDICAO BLOCO  {$$=  "if " + $2 + $3   ;}
+
+
+CONDICAO        : abre_parenteses COMPARACAO fecha_parenteses {$$=    "( " + $2 + " )"   ;}
+
+
+COMPARACAO      : VALOR comparador VALOR {$$=  $1 + " " + $2 + " " + $3   ;}
 
 
 EXPRESSAO       : EXP                      {$$=    $1              ;}

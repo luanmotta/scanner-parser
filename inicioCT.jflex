@@ -35,6 +35,7 @@ funcao_principal { return Parser.main;             }
 ":="             { return Parser.atribuicao;       }
 
 retornar         { return Parser.retornar;         }
+se               { return Parser.se;               }
 
 inteiro          { return Parser.inteiro;          }
 real             { return Parser.real;             }
@@ -56,15 +57,19 @@ caracter         { return Parser.caracter;         }
 	return Parser.comentario;
 }
 
-[\/\*\-\+] {
+[\/\*\-\+%] {
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.operador;
+}
+
+==|<=|>=|<|> {
+	yyparser.yylval = new ParserVal(yytext());
+	return Parser.comparador;
 }
 
 [a-zA-Z_][_a-zA-Z0-9\[\]]*	{
 	yyparser.yylval = new ParserVal(yytext());
 	return Parser.identificador;
 }
-
 
 {NL}|" "|\t	{  }
